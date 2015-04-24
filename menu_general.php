@@ -108,7 +108,7 @@
       $perrad          = $rs->fields["PERM_RADI"];
       
       // Si el usuario tiene permiso de radicar el prog. muestra los iconos de radicacion
-      include ('./menu/menuPrimero.php');
+      include ('./menu/modulos.php');
       include ('./menu/radicacion.php');
       include ('./menu/bandejas.php');
       include ('./menu/agendados.php');
