@@ -1,0 +1,135 @@
+.titulo1 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	line-height: 10px;
+	font-weight: bolder;
+	color: #FFFFFF;
+	background-color: 377584;
+	text-indent: 5pt;
+}
+.info {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	color: #000000;
+	text-indent: 5pt;
+}
+.tex_area {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;
+	text-indent: 5pt;
+}
+.botones {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bolder;
+	background-color: #FF9900;
+	color: #FFFFFF;
+	text-align: center;
+	height: 20px;
+	width: 90px;
+	border: thin solid #FFFFFF;
+}
+.botones_2 {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bolder;
+	background-color: #FF9900;
+	color: #FFFFFF;
+	text-align: center;
+	height: 20px;
+	width: 30px;
+	border: thin solid #999999;
+}
+.titulos2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: bolder;
+	color: #000000;
+	background-color: a8bac6;
+	text-indent: 5pt;
+	vertical-align: middle;
+	height: 30px;
+}
+.tablas {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: bolder;
+	color: #FFFFFF;
+	background-color: #999999;
+	text-indent: 5pt;
+	vertical-align: middle;
+}
+.borde_tab {
+	border: thin solid #377584;
+}
+.leidos {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bolder;
+	color: #006699;
+	text-decoration: none;
+}
+.no_leidos {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bolder;
+	color: #990000;
+	text-decoration: none;
+}
+.listado1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: bolder;
+	text-transform: capitalize;
+	color: #000000;
+	text-decoration: none;
+	background-color: #FFFFFF;
+	text-align: left;
+	text-indent: 5pt;
+	vertical-align: middle;
+	height: 30px;
+}
+.listado2 {
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: bolder;
+	text-transform: capitalize;
+	color: #000000;
+	text-decoration: none;
+	background-color: e3e8ec;
+	text-align: left;
+	text-indent: 5pt;
+	vertical-align: middle;
+	height: 30px;
+}
+.paginacion {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #377584;
+	text-decoration: none;
+	text-align: center;
+}
+.titulo3 {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: bolder;
+	color: #000000;
+	background-color: #FF9900;
+	text-indent: 5pt;
+	vertical-align: middle;
+	height: 30px;
+}

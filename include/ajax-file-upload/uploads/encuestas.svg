@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created by diasvg.py -->
+<svg width="44.480cm" height="27.200cm" viewBox="0.900 4.000 45.380 31.200"
+ xmlns="http://www.w3.org/2000/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect x="0.900" y="4.100" width="13.235" height="2.300" fill="#FFFFFF" stroke="none" stroke-width="0"/>
+<rect x="0.900" y="4.100" width="13.235" height="2.300" fill="none" stroke="#000000" stroke-width="0.100" />
+<text x="7.518" y="4.800"  fill="#000000" text-anchor="middle" font-size="0.70" font-family="sans" font-style="normal" font-weight="700">
+CRL_ENC_ENCUESTA</text>
+<text x="7.518" y="5.500"  fill="#000000" text-anchor="middle" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+Tabla en la que se genera la</text>
+<text x="7.518" y="6.200"  fill="#000000" text-anchor="middle" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+descripcion de cada encuesta creada.</text>
+<rect x="0.900" y="6.400" width="13.235" height="9.900" fill="#FFFFFF" stroke="none" stroke-width="0"/>
+<rect x="0.900" y="6.400" width="13.235" height="9.900" fill="none" stroke="#000000" stroke-width="0.100" />
+<polygon fill="#000000" stroke="none" stroke-width="0.010" points="1.050,6.900 1.150,7.050 1.250,6.900 1.150,6.750 "/>
+<text x="1.350" y="7.200"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+CRL_ENC_CODIGO</text>
+<text x="9.165" y="7.200"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+NUMERIC</text>
+<line x1="1.350" y1="7.280" x2="11.860" y2="7.280" stroke="#000000" stroke-width="0.050" />
+<text x="1.600" y="7.900"  fill="#000000" text-anchor="start" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+Codigo de la encuesta</text>
+<ellipse cx="1.150" cy="8.750" rx="0.100" ry="0.100" fill="none" stroke="#000000"  stroke-width="0.010" /><text x="1.350" y="9.050"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+CRL_ENC_NOMBRE</text>
+<text x="9.165" y="9.050"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+VARCCHAR(50)</text>
+<text x="1.600" y="9.750"  fill="#000000" text-anchor="start" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+Nombre que identifica la encuesta.</text>
+<ellipse cx="1.150" cy="10.600" rx="0.100" ry="0.100" fill="none" stroke="#000000"  stroke-width="0.010" /><text x="1.350" y="10.900"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+CRL_ENC_DESCRIPCION</text>
+<text x="9.165" y="10.900"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+VARCHAR(500)</text>
+<ellipse cx="1.150" cy="11.400" rx="0.100" ry="0.100" fill="none" stroke="#000000"  stroke-width="0.010" /><text x="1.350" y="11.700"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+CRL_ENC_FECHA</text>
+<text x="9.165" y="11.700"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+DATE</text>
+<text x="1.600" y="12.400"  fill="#000000" text-anchor="start" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+Fecha de Creacion de La encuesta.</text>
+<ellipse cx="1.150" cy="13.250" rx="0.100" ry="0.100" fill="none" stroke="#000000"  stroke-width="0.010" /><text x="1.350" y="13.550"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+CRL_ENC_TIEMPOMAX</text>
+<text x="9.165" y="13.550"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+NUMERIC(3)</text>
+<text x="1.600" y="14.250"  fill="#000000" text-anchor="start" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+Tiempo en minutos de duracion de cada</text>
+<text x="1.600" y="14.950"  fill="#000000" text-anchor="start" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+encuesta.</text>
+<ellipse cx="1.150" cy="15.800" rx="0.100" ry="0.100" fill="none" stroke="#000000"  stroke-width="0.010" /><rect x="16.100" y="4.050" width="12.850" height="2.300" fill="#FFFFFF" stroke="none" stroke-width="0"/>
+<rect x="16.100" y="4.050" width="12.850" height="2.300" fill="none" stroke="#000000" stroke-width="0.100" />
+<text x="22.525" y="4.750"  fill="#000000" text-anchor="middle" font-size="0.70" font-family="sans" font-style="normal" font-weight="700">
+CRL_PRE_PREGUNTA</text>
+<text x="22.525" y="5.450"  fill="#000000" text-anchor="middle" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+Tabla que contiene las preguntas de la</text>
+<text x="22.525" y="6.150"  fill="#000000" text-anchor="middle" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+Encuesta.</text>
+<rect x="16.100" y="6.350" width="12.850" height="23.600" fill="#FFFFFF" stroke="none" stroke-width="0"/>
+<rect x="16.100" y="6.350" width="12.850" height="23.600" fill="none" stroke="#000000" stroke-width="0.100" />
+<polygon fill="#000000" stroke="none" stroke-width="0.010" points="16.250,6.850 16.350,7.000 16.450,6.850 16.350,6.700 "/>
+<text x="16.550" y="7.150"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+CRL_PRE_CODIGO</text>
+<text x="23.980" y="7.150"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+numeric(4)</text>
+<line x1="16.550" y1="7.230" x2="27.830" y2="7.230" stroke="#000000" stroke-width="0.050" />
+<text x="16.800" y="7.850"  fill="#000000" text-anchor="start" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+Codigo de la Pregunta a realizar.</text>
+<polygon fill="#000000" stroke="none" stroke-width="0.010" points="16.250,8.700 16.350,8.850 16.450,8.700 16.350,8.550 "/>
+<text x="16.550" y="9.000"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+CRL_ENC_CODIGO</text>
+<text x="23.980" y="9.000"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+NUMERIC(5)</text>
+<line x1="16.550" y1="9.080" x2="27.830" y2="9.080" stroke="#000000" stroke-width="0.050" />
+<text x="16.800" y="9.700"  fill="#000000" text-anchor="start" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+Codigo de la Pregunta a realizar.</text>
+<ellipse cx="16.350" cy="10.550" rx="0.100" ry="0.100" fill="none" stroke="#000000"  stroke-width="0.010" /><text x="16.550" y="10.850"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+CRL_PRE_TEXTO</text>
+<text x="23.980" y="10.850"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+VARCHAR(500)</text>
+<text x="16.800" y="11.550"  fill="#000000" text-anchor="start" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+Texto de la pregunta a realizar.</text>
+<ellipse cx="16.350" cy="12.400" rx="0.100" ry="0.100" fill="none" stroke="#000000"  stroke-width="0.010" /><text x="16.550" y="12.700"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+CRL_PRE_ORDEN</text>
+<text x="23.980" y="12.700"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+NUMERIC(2)</text>
+<text x="16.800" y="13.400"  fill="#000000" text-anchor="start" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+Orden de secuencia en la cual saldra la</text>
+<text x="16.800" y="14.100"  fill="#000000" text-anchor="start" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+pregunta realizada.</text>
+<ellipse cx="16.350" cy="14.950" rx="0.100" ry="0.100" fill="none" stroke="#000000"  stroke-width="0.010" /><text x="16.550" y="15.250"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+CRL_PRET_CODIGO</text>
+<text x="23.980" y="15.250"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+NUMERIC(1)</text>
+<text x="16.800" y="15.950"  fill="#000000" text-anchor="start" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+Codigo de Tipo de Pregunta a realizar. </text>
+<text x="16.800" y="16.650"  fill="#000000" text-anchor="start" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+MS, MSM, MAT, BOOL, NUMBER...</text>
+<ellipse cx="16.350" cy="17.500" rx="0.100" ry="0.100" fill="none" stroke="#000000"  stroke-width="0.010" /><text x="16.550" y="17.800"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+CRL_PRE_TIEMPO</text>
+<text x="23.980" y="17.800"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+NUMERIC(3)</text>
+<text x="16.800" y="18.500"  fill="#000000" text-anchor="start" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+Tiempo maximo de Respuesta de la</text>
+<text x="16.800" y="19.200"  fill="#000000" text-anchor="start" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+Pregunta.</text>
+<ellipse cx="16.350" cy="20.050" rx="0.100" ry="0.100" fill="none" stroke="#000000"  stroke-width="0.010" /><text x="16.550" y="20.350"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+CRL_PRE_FECHA</text>
+<text x="23.980" y="20.350"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+DATE</text>
+<text x="16.800" y="21.050"  fill="#000000" text-anchor="start" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+FECHA DE CREACIONI DE LA PREGUNTA</text>
+<text x="16.800" y="21.750"  fill="#000000" text-anchor="start" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+REALIZADA.</text>
+<ellipse cx="16.350" cy="22.600" rx="0.100" ry="0.100" fill="none" stroke="#000000"  stroke-width="0.010" /><text x="16.550" y="22.900"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+CRL_PRE_TABLADATOS</text>
+<text x="23.980" y="22.900"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+VARCHAR(50)</text>
+<text x="16.800" y="23.600"  fill="#000000" text-anchor="start" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+Tabla en la cual se grabaran los datos</text>
+<text x="16.800" y="24.300"  fill="#000000" text-anchor="start" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+de la encuesta.</text>
+<ellipse cx="16.350" cy="25.150" rx="0.100" ry="0.100" fill="none" stroke="#000000"  stroke-width="0.010" /><text x="16.550" y="25.450"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+CRL_PRE_OBLIGA</text>
+<text x="23.980" y="25.450"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+NUMERIC(1)</text>
+<text x="16.800" y="26.150"  fill="#000000" text-anchor="start" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+Si es o no obligatorio Responder esta</text>
+<text x="16.800" y="26.850"  fill="#000000" text-anchor="start" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+Pregunta.</text>
+<ellipse cx="16.350" cy="27.700" rx="0.100" ry="0.100" fill="none" stroke="#000000"  stroke-width="0.010" /><text x="16.550" y="28.000"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+CRL_PRE_SIGUIENTE</text>
+<text x="23.980" y="28.000"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+NUMBER(3)</text>
+<text x="16.800" y="28.700"  fill="#000000" text-anchor="start" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+Codigo de Pregunta Siguiente</text>
+<text x="16.800" y="29.400"  fill="#000000" text-anchor="start" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+dependiendo Condicion.</text>
+<line x1="14.622" y1="6.888" x2="16.100" y2="6.850" stroke="#000000" stroke-width="0.100" />
+<polygon fill="#000000" stroke="none" stroke-width="0.100" points="14.247,6.897 14.740,6.635 14.622,6.888 14.753,7.134 "/>
+<polygon fill="none" stroke="#000000" stroke-width="0.100"  points="14.247,6.897 14.740,6.635 14.622,6.888 14.753,7.134 "/>
+<rect x="32.700" y="4.000" width="11.695" height="3.000" fill="#FFFFFF" stroke="none" stroke-width="0"/>
+<rect x="32.700" y="4.000" width="11.695" height="3.000" fill="none" stroke="#000000" stroke-width="0.100" />
+<text x="38.547" y="4.700"  fill="#000000" text-anchor="middle" font-size="0.70" font-family="sans" font-style="normal" font-weight="700">
+CRL_PRET_PREGUNTATIPO</text>
+<text x="38.547" y="5.400"  fill="#000000" text-anchor="middle" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+En esta se seleccionan los tipos de</text>
+<text x="38.547" y="6.100"  fill="#000000" text-anchor="middle" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+pregunta a realizar.  Multiple, Terxto,</text>
+<text x="38.547" y="6.800"  fill="#000000" text-anchor="middle" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+Booleano, numero ,,,, etc.</text>
+<rect x="32.700" y="7.000" width="11.695" height="4.700" fill="#FFFFFF" stroke="none" stroke-width="0"/>
+<rect x="32.700" y="7.000" width="11.695" height="4.700" fill="none" stroke="#000000" stroke-width="0.100" />
+<ellipse cx="32.950" cy="7.500" rx="0.100" ry="0.100" fill="none" stroke="#000000"  stroke-width="0.010" /><text x="33.150" y="7.800"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+CRL_PRET_CODIGO</text>
+<text x="39.425" y="7.800"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+NUMERIC(2)</text>
+<text x="33.400" y="8.500"  fill="#000000" text-anchor="start" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+Codigo del tipo de Pregunta.</text>
+<ellipse cx="32.950" cy="9.350" rx="0.100" ry="0.100" fill="none" stroke="#000000"  stroke-width="0.010" /><text x="33.150" y="9.650"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+CRL_PRET_NOMBRE</text>
+<text x="39.425" y="9.650"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+VARCHAR(100)</text>
+<text x="33.400" y="10.350"  fill="#000000" text-anchor="start" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+Descripcion del tipo de Pregunta.</text>
+<ellipse cx="32.950" cy="11.200" rx="0.100" ry="0.100" fill="none" stroke="#000000"  stroke-width="0.010" /><polyline fill="none" stroke="#000000" stroke-width="0.100"  points="28.950,14.950 30.250,14.950 30.250,5.500 32.213,5.500 "/>
+<polygon fill="#000000" stroke="none" stroke-width="0.100" points="32.588,5.500 32.088,5.750 32.213,5.500 32.088,5.250 "/>
+<polygon fill="none" stroke="#000000" stroke-width="0.100"  points="32.588,5.500 32.088,5.750 32.213,5.500 32.088,5.250 "/>
+<rect x="33.300" y="18.050" width="12.080" height="1.600" fill="#FFFFFF" stroke="none" stroke-width="0"/>
+<rect x="33.300" y="18.050" width="12.080" height="1.600" fill="none" stroke="#000000" stroke-width="0.100" />
+<text x="39.340" y="18.750"  fill="#000000" text-anchor="middle" font-size="0.70" font-family="sans" font-style="normal" font-weight="700">
+CRL_PREI_PREGUNTAITEM</text>
+<text x="39.340" y="19.450"  fill="#000000" text-anchor="middle" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+ITEMS DE LAS PREGUNTAS A REALIZAR.</text>
+<rect x="33.300" y="19.650" width="12.080" height="11.550" fill="#FFFFFF" stroke="none" stroke-width="0"/>
+<rect x="33.300" y="19.650" width="12.080" height="11.550" fill="none" stroke="#000000" stroke-width="0.100" />
+<polygon fill="#000000" stroke="none" stroke-width="0.010" points="33.450,20.150 33.550,20.300 33.650,20.150 33.550,20.000 "/>
+<text x="33.750" y="20.450"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+CRL_PREI_CODIGO</text>
+<text x="40.025" y="20.450"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+NUMBER(4)</text>
+<line x1="33.750" y1="20.530" x2="43.490" y2="20.530" stroke="#000000" stroke-width="0.050" />
+<text x="34.000" y="21.150"  fill="#000000" text-anchor="start" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+Codigo item de la pRegunta. </text>
+<ellipse cx="33.550" cy="22.000" rx="0.100" ry="0.100" fill="none" stroke="#000000"  stroke-width="0.010" /><text x="33.750" y="22.300"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+CRL_PRE_CODIGO</text>
+<text x="40.025" y="22.300"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+NUMERIC(4)</text>
+<text x="34.000" y="23.000"  fill="#000000" text-anchor="start" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+Codigo de la pregunta a la cual</text>
+<text x="34.000" y="23.700"  fill="#000000" text-anchor="start" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+pertenece el Item.</text>
+<ellipse cx="33.550" cy="24.550" rx="0.100" ry="0.100" fill="#000000" stroke="none"  /><text x="33.750" y="24.850"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+CRL_PREI_NOMBRE</text>
+<text x="40.025" y="24.850"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+VARCHAR(100)</text>
+<text x="34.000" y="25.550"  fill="#000000" text-anchor="start" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+Item a seleccionar de la pregunta</text>
+<text x="34.000" y="26.250"  fill="#000000" text-anchor="start" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+Realizada.</text>
+<ellipse cx="33.550" cy="27.100" rx="0.100" ry="0.100" fill="none" stroke="#000000"  stroke-width="0.010" /><text x="33.750" y="27.400"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+CRL_PREI_CAMPO</text>
+<text x="40.025" y="27.400"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+VARCACHAR(30)</text>
+<text x="34.000" y="28.100"  fill="#000000" text-anchor="start" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+Nombre de campo a usar En el cual se</text>
+<text x="34.000" y="28.800"  fill="#000000" text-anchor="start" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+grabara la informacion de la pregunta.</text>
+<ellipse cx="33.550" cy="29.650" rx="0.100" ry="0.100" fill="none" stroke="#000000"  stroke-width="0.010" /><text x="33.750" y="29.950"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+CRL_PREI_TIPO</text>
+<text x="40.025" y="29.950"  fill="#000000" text-anchor="start" font-size="0.80" font-family="monospace" font-style="normal" font-weight="400">
+VARCHAR(20)</text>
+<text x="34.000" y="30.650"  fill="#000000" text-anchor="start" font-size="0.70" font-family="sans" font-style="normal" font-weight="400">
+Tipo de dato a usar en la pregunta.</text>
+<polyline fill="none" stroke="#000000" stroke-width="0.100"  points="28.950,6.850 31.125,6.850 31.125,20.150 32.813,20.150 "/>
+<polygon fill="#000000" stroke="none" stroke-width="0.100" points="33.188,20.150 32.688,20.400 32.813,20.150 32.688,19.900 "/>
+<polygon fill="none" stroke="#000000" stroke-width="0.100"  points="33.188,20.150 32.688,20.400 32.813,20.150 32.688,19.900 "/>
+</svg>

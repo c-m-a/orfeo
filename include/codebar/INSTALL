@@ -1,0 +1,62 @@
+Here the directory tree if you had downloaded seperated files.
+Voici la liste des répertoires si vous avez télécharger avec des fichiers séparés.
+
+/
+/index.php		(Redirect only to /html/code39.php)
+	/class/
+	/class/Barcode.php
+	/class/codabar.barcode.php
+	/class/code11.barcode.php
+	/class/code39.barcode.php
+	/class/code93.barcode.php
+	/class/code128.barcode.php
+	/class/ean8.barcode.php
+	/class/ean13.barcode.php
+	/class/FColor.php
+	/class/FDrawing.php
+	/class/i25.barcode.php
+	/class/index.php
+	/class/LSTable.php
+	/class/msi.barcode.php
+	/class/othercode.barcode.php
+	/class/postnet.barcode.php
+	/class/s25.barcode.php
+	/class/Table_template.php
+	/class/upca.barcode.php
+	/class/upce.barcode.php
+	/class/upcext2.barcode.php
+	/class/upcext5.barcode.php
+
+	/html/
+	/html/codabar.php
+	/html/code11.php
+	/html/code39.php
+	/html/code93.php
+	/html/code128.php
+	/html/ean8.php
+	/html/ean13.php
+	/html/error.png
+	/html/footer.php
+	/html/function.php
+	/html/header.php
+	/html/i25.php
+	/html/image.php
+	/html/index.php			(Redirect only to code39.php)
+	/html/msi.php
+	/html/othercode.php
+	/html/postnet.php
+	/html/s25.php
+	/html/style.css
+	/html/upca.php
+	/html/upce.php
+	/html/upcext2.php
+	/html/upcext5.php
+
+You must modify the file header.php, change the following line to point to the /class/ folder with a real path
+Vous devez modifier le fichier header.php, changez la ligne suivante pour qu'elle redirige vers le dossier /class/ avec le chemin complet
+$class_dir = '../class';
+change it for / changez le pour
+$class_dir = 'C:/where/barcode_gen/is_installed/class';
+
+Start with code39.php and you will be able to make barcodes
+Commencez avec code39.php et vous serez capable de faire des codes barre

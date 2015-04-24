@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<!-- 
+// *****************************************
+// Some comment here
+// *****************************************
+//-->
+<svg width="200" height="200">  
+    <defs>
+        <style type="text/css"><![CDATA[ .sample { font-size:12; fill:red; stroke:black; stroke-width: 0.5 } ]]></style>
+        <path id="level_0" fill="orange" d="M0 0,1 0,0.5 0.5,z" />
+    </defs>
+    <image width="{img_width}" height="{img_height}" xlink:href="{data_url_scheme}" transform="translate(50, 10) rotate(30) scale(1.3)" />
+    <use xlink:href="#level_0" transform="translate(80, 40) scale(100)" />
+    <text x="30" y="180" class="sample">Template file used.</text>
+</svg>

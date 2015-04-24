@@ -1,0 +1,3 @@
+<?
+$masiva->mostrarError();
+?>

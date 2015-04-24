@@ -1,0 +1,78 @@
+.tablaCarpetas {
+	border: 1px solid #000000;
+	background-color: #FFFFFF;
+}
+.tablaBusqueda {
+	background-color: #cedae7;
+	padding: 2px;
+}
+.textoNormalNegro {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color: #000000;
+}
+.estiloTextfield {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color: #336633;
+}
+.tablaContenido {
+	background-color: #FFFFFF;
+	padding: 4px;
+}
+.tablaUsuario {
+	background-color: #003399;
+}
+.celdaUsuario {
+	background-color: #cedae7;
+}
+.textoTituloNegro {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	font-weight: bold;
+	color: #000000;
+}
+.textoTituloBlanco {
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+.estiloCombo {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color: #003366;
+	background-color: #FFFFFF;
+}
+.textoLeidos {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color: #336699;
+	text-decoration: underline;
+}
+.textoNoLeidos {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	color: #CC0000;
+	text-decoration: underline;
+}
+.celdaFondoRegistros {
+	background-color: #cedae7;
+}
+.celdaRegistroImpar {
+	background-color: #FFFFFF;
+}
+.celdaRegistroPar {
+	background-color: #f0f0f0;
+}
+.celdaRegistroTitulo {
+	background-color: #CCCCCC;
+}
+.textoRegistroTitulo {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	font-weight: bold;
+	color: #003366;
+	text-decoration: underline;
+}

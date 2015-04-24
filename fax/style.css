@@ -1,0 +1,18 @@
+table {
+	background-color:#EEEEEE;
+}
+caption
+{
+	background-color:#003399;
+	color:#FFFFFF;
+	font-weight:bold;
+	text-align:center;
+}
+a
+{
+	text-decoration:none;
+}
+label
+{
+	font-weight:bold;
+}

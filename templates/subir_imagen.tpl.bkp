@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Realizar Transaccion - Orfeo </title>
+<link rel="stylesheet" href="../estilos/orfeo.css">
+</head>
+<body>
+{$FILTROSELECT}
+<br>
+<table cellspace="2" WIDTH="60%" id="tb_general" align="left" class="borde_tab">
+<tr>
+	<td colspan="2" class="titulos4">ACCION REQUERIDA --> {$CAUSAACCION}</td>
+</tr>
+<tr>
+	<td align="right" bgcolor="#CCCCCC" height="25" class="titulos2">ACCION REQUERIDA :
+</td>
+	<td  width="65%" height="25" class="listado2_no_identa">
+	ASOCIACION DE IMAGEN A RADICADO
+	</td>
+</tr>
+<tr>
+	<td align="right" bgcolor="#CCCCCC" height="25" class="titulos2">RADICADOS INVOLUCRADOS :
+	</td>
+<td width="65%" height="25" class="listado2_no_identa">{$VALRADIO}
+</td>
+</tr>
+<tr>
+<td align="right" bgcolor="#CCCCCC" height="25" class="titulos2">Datos Fila Asociada :
+</td>
+<td  width="65%" height="25" class="listado2_no_identa">
+{$INFO}
+</td>
+</tr>
+<tr>
+<td align="right" bgcolor="#CCCCCC" height="25" class="titulos2">FECHA Y HORA :
+</td>
+<td  width="65%" height="25" class="listado2_no_identa">
+{$FECHA_HORA}
+</td>
+</tr>
+<tr>
+<td align="right" bgcolor="#CCCCCC" height="25" class="titulos2">USUARIO ORIGEN:
+</td>
+<td  width="65%" height="25" class="listado2_no_identa">
+{$NOMBRE_USUARIO}
+</td>
+</tr>
+<tr>
+<td align="right" bgcolor="#CCCCCC" height="25" class="titulos2">DEPENDENCIA ORIGEN:
+</td>
+<td  width="65%" height="25" class="listado2_no_identa">
+{$NOMBRE_DEPENDENCIA}
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

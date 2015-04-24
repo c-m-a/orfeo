@@ -1,0 +1,29 @@
+--
+-- TOC entry 1837 (class 1259 OID 20555)
+-- Dependencies: 3
+-- Name: sgd_novedad_usuario; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- En esta tabla solo se registran los novedades  que se realicen, esta tabla es completamente
+-- independiente de las demas
+
+CREATE TABLE sgd_novedad_usuario (
+    "USUA_DOC" character varying(20) NOT NULL,
+    "NOV_INFOR" character varying(255),
+    "NOV_REASIG" character varying(255),
+    "NOV_VOBO" character varying(255),
+    "NOV_DEV" character varying(255),
+    "NOV_ENTR" character varying(255)
+);
+
+
+ALTER TABLE public.sgd_novedad_usuario OWNER TO postgres;
+
+
+
+ALTER TABLE ONLY sgd_novedad_usuario
+    ADD CONSTRAINT sgd_novedad_usuario_pkey PRIMARY KEY ("USUA_DOC");
+
+
+
+CREATE INDEX idx_novedad_usuario ON sgd_novedad_usuario USING btree ("USUA_DOC");
+
+

@@ -1,0 +1,38 @@
+
+
+***********************************************************************
+Fatal NI connect error 12560, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=192.127.28.36)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orfeo)(CID=(PROGRAM=apache2)(HOST=debian)(USER=www-data))))
+
+  VERSION INFORMATION:
+	TNS for Linux: Version 10.1.0.5.0 - Production
+	TCP/IP NT Protocol Adapter for Linux: Version 10.1.0.5.0 - Production
+  Time: 07-FEB-2013 11:12:46
+  Tracing not turned on.
+  Tns error struct:
+    ns main err code: 12560
+    TNS-12560: Message 12560 not found; No message file for product=network, facility=TNS
+    ns secondary err code: 0
+    nt main err code: 530
+    TNS-00530: Message 530 not found; No message file for product=network, facility=TNS
+    nt secondary err code: 113
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12560, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=192.127.28.36)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orfeo)(CID=(PROGRAM=apache2)(HOST=debian)(USER=www-data))))
+
+  VERSION INFORMATION:
+	TNS for Linux: Version 10.1.0.5.0 - Production
+	TCP/IP NT Protocol Adapter for Linux: Version 10.1.0.5.0 - Production
+  Time: 07-FEB-2013 11:13:01
+  Tracing not turned on.
+  Tns error struct:
+    ns main err code: 12560
+    TNS-12560: Message 12560 not found; No message file for product=network, facility=TNS
+    ns secondary err code: 0
+    nt main err code: 530
+    TNS-00530: Message 530 not found; No message file for product=network, facility=TNS
+    nt secondary err code: 113
+    nt OS err code: 0

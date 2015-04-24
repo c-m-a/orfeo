@@ -1,0 +1,396 @@
+
+.titulo1 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	line-height: 10px;
+	font-weight: bolder;
+	color: #FFFFFF;
+	background-color: #8cacc1;
+	text-indent: 5pt;
+}
+
+.info {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	color: #000000;
+	text-indent: 5pt;
+}
+
+.tex_area {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;
+	text-indent: 2pt;
+}
+
+.botones {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bolder;
+	background-color: #FF9900;
+	color: #FFFFFF;
+	text-align: center;
+	height: 20px;
+	width: 90px;
+	border: thin solid #FFFFFF;
+}
+
+.botones_2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bolder;
+	background-color: #e3ad02;
+	color: #FFFFFF;
+	text-align: center;
+	height: 20px;
+	width: 30px;
+	border: thin solid #999999;
+}
+
+.botones_3 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bolder;
+	background-color: #e3ad02;
+	color: #FFFFFF;
+	text-align: center;
+	height: 20px;
+	width: 70px;
+	border: thin solid #999999;
+}
+
+.botones_mediano {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bolder;
+	background-color: #FF9900;
+	color: #FFFFFF;
+	text-align: center;
+	height: 20px;
+	width: 130px;
+	border: thin solid #FFFFFF;
+}
+
+.botones_mediano2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bolder;
+	background-color: #e3ad02;
+	color: #FFFFFF;
+	text-align: center;
+	height: 20px;
+	width: 130px;
+	border: thin solid #FFFFFF;
+}
+.botones_largo {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bolder;
+	background-color: #FF9900;
+	color: #FFFFFF;
+	text-align: center;
+	height: 20px;
+	width: 230px;
+	border: thin solid #FFFFFF;
+}
+.select {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bolder;
+	background-color: #E3E8EC;
+	color: #000000;
+	border: thin solid #999999;
+}
+.titulos2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: bolder;
+	color: #000000;
+	background-color: #a8bac6;
+	text-indent: 5pt;
+	vertical-align: middle;
+	height: 30px;
+}
+.titulos5 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: bolder;
+	color: #000000;
+	background-color: #e0e6e7;
+	text-indent: 5pt;
+	vertical-align: middle;
+}
+.tablas {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: bolder;
+	color: #FFFFFF;
+	background-color: #999999;
+	text-indent: 5pt;
+	vertical-align: middle;
+}
+.titulos3 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bolder;
+	color: #000000;
+	background-color: #a8bac6;
+	text-indent: 5pt;
+	vertical-align: middle;
+	text-align: center;
+	height: 30px;
+}
+.borde_tab {
+	border: thin solid #377584;
+}
+.leidos {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bolder;
+	color: #006690;
+	text-decoration: none;
+}
+.leidos2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: normal;
+	color: #006690;
+	text-decoration: none;
+}
+.no_leidos {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bolder;
+	color: #488F03;
+	text-decoration: none;
+}
+.listado1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: bolder;
+	text-transform: none;
+	color: #000000;
+	text-decoration: none;
+	background-color: #FFFFFF;
+	text-align: left;
+	vertical-align: middle;
+	height: 30px;
+}
+
+.listado2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: bolder;
+	text-transform: none;
+	color: #000000;
+	text-decoration: none;
+	background-color: #e3e8ec;
+	text-align: left;
+	vertical-align: middle;
+	height: 30px;
+}
+
+.listado2justify {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: bolder;
+  text-transform: none;
+  color: #000000;
+  text-decoration: none;
+  background-color: #e3e8ec;
+  text-align: justify;
+  vertical-align: middle;
+  height: 30px;
+}
+
+.listado2_center {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: bolder;
+	text-transform: none;
+	color: #000000;
+	text-decoration: none;
+	background-color: #e3e8ec;
+	text-align: center;
+	text-indent: 5pt;
+	vertical-align: middle;
+	height: 30px;
+}
+
+.listado2_no_identa {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: bolder;
+	text-transform: none;
+	color: #000000;
+	text-decoration: none;
+	background-color: #e3e8ec;
+	text-align: left;
+	text-indent: 0pt;
+	vertical-align: middle;
+	height: 30px;
+}
+
+.listado5 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: bolder;
+	text-transform: none;
+	color: #000000;
+	text-decoration: none;
+	background-color: #e3e8ec;
+	text-align: left;
+	text-indent: 5pt;
+	vertical-align: middle;
+}
+
+.paginacion {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #377584;
+	text-decoration: none;
+	text-align: center;
+}
+
+.vinculos {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: bolder;
+	color: #006699;
+	text-align: left;
+	text-indent: 5pt;
+	vertical-align: middle;
+}
+
+.botones_funcion {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bolder;
+	background-color: #377584;
+	color: #FFFFFF;
+	text-align: center;
+	border: thin solid #FFFFFF;
+	text-indent: 5pt;
+	vertical-align: middle;
+}
+
+.titulos4 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	line-height: 10px;
+	font-weight: bolder;
+	color: #FFFFFF;
+	background-color: #006699;
+	text-indent: 5pt;
+	text-transform: uppercase;
+	height: 30px;
+}
+
+.alarmas {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #990000;
+	text-align: center;
+}
+
+.menu_princ {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bolder;
+	color: #086478;
+	cursor: pointer;
+	text-decoration: none;
+	text-indent: 3pt;
+}
+
+.titulosError {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: bolder;
+	color: #FF0000;
+	background-color: #e3e8ec;
+	text-indent: 5pt;
+	vertical-align: middle;
+	height: 30px;
+}
+
+.titulosError2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: bolder;
+	color: #FF0000;
+	text-indent: 5pt;
+	vertical-align: middle;
+	height: 30px;
+}
+
+.tSel {
+ background-color: #00FF22;
+ font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: bold; color: #223399;}
+.porExcluir {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bolder;
+	color: #FF0000;
+	text-decoration: none;
+}
+
+.vinculoTipifAnex {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: bolder;
+	color: #009060;
+	text-align: left;
+	text-indent: 5pt;
+	vertical-align: middle;
+}
+.impresos {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+ 	font-style: normal;
+	font-weight: bolder;
+	color: #FF6600;
+	text-decoration: none;
+	text-align: left;
+	text-indent: 5pt;
+	vertical-align: middle;
+}
+.impresosvinc {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: bolder;
+	color: #FF6600;
+	text-align: left;
+	text-indent: 5pt;
+	vertical-align: middle;
+}
+
+.porExcluir {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bolder;
+	color: #FF0000;
+	text-decoration: none;
+}

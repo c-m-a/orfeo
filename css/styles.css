@@ -1,0 +1,76 @@
+.orfeot1 {
+	font-family: "Arial Narrow";
+	font-size: 18pt;
+	font-style: italic;
+	line-height: normal;
+	font-weight: bold;
+	font-variant: normal;
+	color: #000066;
+	background-color: #CCCCCC;
+
+
+}
+.orfeolk1 {
+	font-family: "Arial Narrow";
+	font-size: 12pt;
+	font-style: italic;
+
+}
+.orfeogl {
+	font-family: "Arial Narrow";
+	font-size: 16pt;
+	font-style: italic;
+	font-weight: normal;
+	font-variant: normal;
+	text-decoration: blink;
+}
+.orfeonotat {
+	font-family: "Arial Narrow";
+	font-size: 12pt;
+	font-style: italic;
+	font-weight: bold;
+	font-variant: normal;
+	color: #000033;
+}
+.orfeonotatx {
+	font-family: "Arial Narrow";
+	font-size: 12pt;
+	font-style: italic;
+	font-weight: normal;
+}
+.orfeopar {
+	font-family: "Arial Narrow";
+	font-size: 14pt;
+	font-style: normal;
+	font-weight: normal;
+
+}
+.orfeolk2 {
+	font-family: "Arial Narrow";
+	font-size: 14pt;
+	font-style: normal;
+	font-weight: bold;
+	line-height: 2pt;
+}
+.orfeolk3 {
+	font-family: "Arial Narrow";
+	font-size: 14pt;
+	font-style: italic;
+	font-weight: normal;
+	line-height: 2pt;
+
+}
+.orfeot2 {
+	font-family: "Arial Narrow";
+	font-size: 18pt;
+	font-weight: bold;
+}
+.orfeolistnum {
+	font-family: "Arial Narrow";
+	font-size: 14pt;
+	line-height: 20pt;
+	list-style-type: none;
+	list-style-position: outside;
+	list-style-image: none;
+
+}

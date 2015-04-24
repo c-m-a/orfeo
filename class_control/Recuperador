@@ -1,0 +1,19 @@
+<?php
+require_once("$ruta_raiz/include/db/ConnectionHandler.php");
+require_once("$ruta_raiz/include/pdf/class.ezpdf.inc");
+class Recuperador {
+var $conexion;
+function Recuperador(){
+$this->conexion = new ConnectionHandler;
+}
+function Previo() {
+$q=
+
+}
+
+}
+
+
+
+
+?>

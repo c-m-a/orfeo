@@ -1,0 +1,19 @@
+.progressBarContainer
+{
+	width: 300px;
+	border: 1px solid black;
+}
+
+.progressBar
+{
+	height: 30px;
+	background-color: red; 
+	width: 0px;
+}
+
+.progressText
+{
+	position: absolute;
+	z-index: 1;
+
+}

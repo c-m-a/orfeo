@@ -1,0 +1,96 @@
+.e_cajas {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	background-color: #FFFFFF;
+	border: 1px solid #999999;
+}
+.e_buttons {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	font-weight: normal;
+	background-color: #CADBEC;
+	border: 1px solid #999999;
+; color: #000000
+}
+.e_tablas {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+	color: #000000;
+	background-color: #AAC8F4;
+}
+.etexto {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;
+}
+.etexto2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+}
+.etablas2 {
+	background-color: #CFD6EF;
+}
+.ebuttons2 {  font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: normal; color: #000000; background-color: #CCCCCC; border: 1px inset; background-image: url(imagenes/fondoBoton.gif); background-repeat: repeat-x; border-color: #000000 solid}
+.ecajasfecha {  font-family: Arial, Helvetica, sans-serif; font-size: 8pt; background-color: #FFFFFF; border: 1px solid; color: #333333; border-color: #999999 solid}
+.etablas3 { background-color: #FFFFFF; }
+.tencabezado {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	font-weight: bold;
+	background-color: #003366;
+	color: #000000;
+}
+.tencabezado2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+}
+.tpar {  font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;color: #669966}
+.timpar {  font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;color: #669966; background-color: #EAEAEA}
+.tanexo {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold;color: #FF8000; background-color: #EAEAEA}
+.tparr {  font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: bold; color: #003399}
+.timparr {  font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: bold; color: #003399; background-color: #EAEAEA}
+.tSel {  font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: bold; color: #223399; background-color:#CCFF33}
+.etitulos {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+}
+.etextou { font-family: Arial, Helvetica, sans-serif; font-size: 8pt; color: #FF0000; ; font-weight: normal}
+.eerrores {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #FF0000;
+}
+.eletraa {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #003399;
+}
+.cajac {
+font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; background-color: #DAF1FC; border: 1px #999999 solid
+}
+.etextomenu {  font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: normal; color: #333333}
+.ecomentario {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; background-color: #D9E3F4; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px}
+.enoresultado {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; color: #000066; text-decoration: underline}
+.t_bordeVerde {  border: 1px #003399 solid}
+.t_bordeGris {  border: 1px #CCCCCC solid; background-color: #FFFFFF}
+.textoComentario {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: normal; color: #666666}
+.tituloListado {  font-family: Arial, Helvetica, sans-serif; font-size: 10pt; color: #666666; font-weight: bold}
+.celdaGris {  background-color: #EEEEEE}
+.campos {  font-family: Arial, Helvetica, sans-serif; font-size: 8pt; color: #333333; background-color: #E9E9E9}
+.grisCCCCCC { 
+   background-color: #CCCCCC;
+   font-family: Verdana,Arial, Helvetica, sans-serif; font-size: 10pt; color: #333333
+   }
+.blanco { 
+   background-color: #CCCCCC;
+   font-family: Verdana,Arial, Helvetica, sans-serif; font-size: 10pt; color: #333333
+   }
+.tablaRoja {  border: #CC0000; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px}
+.error {  font-family: Arial, Helvetica, sans-serif; font-size: 9pt; color: #CC0000}
+.t_bordeNegro {
+border: 1px solid #000000; background-color: #D4D0C8
+}

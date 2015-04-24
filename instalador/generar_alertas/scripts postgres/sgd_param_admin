@@ -1,0 +1,31 @@
+--
+-- TOC entry 1836 (class 1259 OID 20547)
+-- Dependencies: 3
+-- Name: sgd_param_admin; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- Esta tabla es completamente independiente de las demas
+
+CREATE TABLE sgd_param_admin (
+    "PARAM_CODIGO" character varying(20) NOT NULL,
+    "PARAM_NOMBRE" character varying(255),
+    "PARAM_DESC" character varying(255),
+    "PARAM_VALOR" character varying(255)
+);
+
+
+ALTER TABLE public.sgd_param_admin OWNER TO postgres;
+
+
+
+INSERT INTO sgd_param_admin ("PARAM_CODIGO", "PARAM_NOMBRE", "PARAM_DESC", "PARAM_VALOR") VALUES ('1', 'ALERT_FUNCTION', '1', '1');
+
+
+ALTER TABLE ONLY sgd_param_admin
+    ADD CONSTRAINT "SGD_PARAM_ADMIN_pkey" PRIMARY KEY ("PARAM_CODIGO");
+
+
+
+
+CREATE INDEX idx_param_admin ON sgd_param_admin USING btree ("PARAM_CODIGO");
+
+
+

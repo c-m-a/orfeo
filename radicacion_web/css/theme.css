@@ -1,0 +1,185 @@
+/* - - - Custom Theme - - - */
+
+/* Logo */
+h1 a {
+	background-image:url('../images/wflogo.png'); 
+	min-height:0;
+	height:40px;
+}
+* html h1 a {/* IE6 png Support */
+	background-image: none;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/images/wflogo.png", sizingMethod="crop");
+}
+
+/* Backgrounds */
+body{
+	background-image:none;
+	background-color:#FFFFFF;
+}
+h1{
+	background-image:none;
+	background-color:#DEDEDE;
+}
+#container, body.embed{
+	background-color:#FFFFFF;
+}
+.wufoo input.text, .wufoo textarea.textarea{
+	background:#FFFFFF url(/images/fieldbg.gif) repeat-x top;
+}
+.wufoo .focused{
+	background-color:#FFF7C0;
+}
+.wufoo .instruct{
+	background-color:#F5F5F5;
+}
+
+/* Borders */
+#container{
+	border:1px solid #CCCCCC;
+}
+.wufoo .info{
+	border-bottom:1px dotted #CCCCCC;
+}
+.wufoo .section{
+	border-top:1px dotted #CCCCCC;
+}
+.wufoo input.text, .wufoo textarea.textarea{
+	border:;
+}
+.wufoo .instruct{
+	border:1px solid #E6E6E6;
+}
+
+/* Typography */
+.wufoo .info h2{
+	font-size:160%;
+	font-family:inherit;
+	font-weight:;
+	font-style:;
+	color:#000000;
+}
+.wufoo .info div{
+	font-size:95%;
+	font-family:inherit;
+	font-weight:;
+	font-style:;
+	color:#444444;
+}
+.wufoo .section h3{
+	font-size:110%;
+	font-family:inherit;
+	font-weight:;
+	font-style:;
+	color:#000000;
+}
+.wufoo .section div{
+	font-size:85%;
+	font-family:inherit;
+	font-weight:;
+	font-style:;
+	color:#444444;
+}
+
+.wufoo .graph h3{
+	color:#000000;
+}
+.wufoo .footer{
+	color:#000000;
+}
+.wufoo .footer span{
+	color:#444444;
+}
+
+.wufoo label.desc{
+	font-size:95%;
+	font-family:inherit;
+	font-weight:;
+	font-style:;
+	color:#444444;
+}
+.wufoo li div, .wufoo li span, .wufoo li div label, .wufoo li span label{
+	font-family:inherit;
+	color:#444444;
+}
+.wufoo label.choice{
+	font-size:100%;
+	font-family:inherit;
+	font-weight:;
+	font-style:;
+	color:#444444;
+}
+.wufoo input.text, .wufoo textarea.textarea, .wufoo select.select{
+	font-size:100%;
+	font-family:inherit;
+	font-weight:;
+	font-style:;
+	color:#333333;
+}
+.wufoo .instruct{
+	font-size:80%;
+	font-family:inherit;
+	font-weight:;
+	font-style:;
+	color:#444444;
+}
+.wufoo li.altInstruct .instruct, .wufoo li.leftHalf .instruct, .wufoo li.rightHalf .instruct{
+	color:#444444;
+}
+.wufoo input.btTxt{
+	font-size:;
+	font-family:;
+	font-weight:;
+	font-style:;
+	color:;
+}
+.wufoo li.focused label.desc{
+	font-size:;
+	font-family:;
+	font-weight:;
+	font-style:;
+	color:#000000;
+}
+.wufoo li.focused div, .wufoo li.focused span, .wufoo li.focused div label, .wufoo li.focused span label{
+	font-family:;
+	color:#000000;
+}
+
+/* Likert Backgrounds*/
+
+.likert table{
+	background-color:#FFFFFF;
+}
+.likert thead td, .likert thead th{
+	background-color:#bfbfbf;
+}
+.likert tbody tr.alt td, .likert tbody tr.alt th{
+	background-color:#e6e6e6;
+}
+
+/* Likert Borders */
+
+.likert td, .likert thead td{
+	border-left:1px solid #d9d9d9;
+}
+.likert th, .likert td{
+	border-bottom:1px solid #d9d9d9;
+}
+
+/* Likert Typography */
+
+.likert caption, .likert thead td, .likert tbody th, .likert label{
+	color:#444444;
+}
+
+/* Likert Hover */
+
+.likert tbody tr:hover td, .likert tbody tr:hover th, .likert tbody tr:hover label{
+	background-color:#FFF7C0;
+	color:#000000;
+}
+
+
+/* Drop Shadows */
+#top, #bottom{
+	visibility:visible;
+}

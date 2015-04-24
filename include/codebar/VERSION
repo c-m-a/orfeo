@@ -1,0 +1,7 @@
+v1.04		2  apr	2005		Correcting some bugs and makes available for commercial usage : purchase it on http://other.lookstrike.com/barcode/
+v1.03		28 mar	2005		Correcting DrawChar
+v1.02		8  mar	2005		Transforming PHPDOC and converting to XHTML1.0 Transitionnal
+					And adding a special option that check if you have PHP5 installed
+					Because to many people are writing to me that saying the script doesn't work (because they have PHP4).
+v1.01		7  jul  2004		Correcting code39.barcode.php
+v1.00		17 jun	2004		New :)

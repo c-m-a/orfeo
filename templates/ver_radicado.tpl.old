@@ -1,0 +1,163 @@
+<html>
+  <head>
+    <title>.: Modulo total :.</title>
+    <link rel="stylesheet" href="estilos/orfeo.css">
+    {include file='javascript_ver_radicado.tpl'}
+    <div id="spiffycalendar" class="text"></div>
+    <script language="JavaScript" src="js/spiffyCal/spiffyCal_v2_1.js"></script>
+    <link rel="stylesheet" type="text/css" href="js/spiffyCal/spiffyCal_v2_1.css">
+  </head>
+  <body bgcolor="#FFFFFF" topmargin="0" onLoad="window_onload();{$BODY_SUPERSOLIDADIA}">
+  <table border="0" width="100%" cellpadding="0" cellspacing="5" class="borde_tab">
+    <tr>
+    <td class="titulos2">
+      <a class="vinculos" href="javascript:history.back();">PAGINA ANTERIOR</a>
+    </td>
+    <td width="85%" class="titulos2">
+	    DATOS DEL RADICADO No
+	  {if $MOSTRAR_ENLACE_RADICADO}
+      <a title='Click para modificar el Documento' href='{$ENLACE_RADICACION}' notborder >{$NUMERO_RADICADO}</a>
+	  {else}
+      {$NUMERO_RADICADO}
+    {/if}
+    {if $MOSTRAR_EXPEDIENTE}
+      <span class="noleidos">&nbsp;&nbsp;&nbsp;PERTENECIENTE AL EXPEDIENTE No. {$DATOS_EXPEDIENTE}</span>
+	  {/if}
+    {if $MOSTRAR_EXPEDIENTES}
+      <span class="noleidos">&nbsp;&nbsp;&nbsp;PERTENECIENTE AL EXPEDIENTE No. {$DATOS_EXPEDIENTES}</span>
+	  {/if}
+    </td>
+    <td class="titulos5">
+        <a class="vinculos" href="{$ENLACE_SOLICITADOS}">Solicitados</a>
+      </td>
+      <td class="titulos5">
+        <a class="vinculos" href="{$ENLACE_RESERVAR}">Solicitar Fisico</a>
+      </td>
+    </tr>
+  </table>
+  <table width="100%" class='t_bordeGris'>
+    <tr class="t_bordeGris">
+      <td width='33%' height="6">
+        <table width='100%' border='0' cellspacing='0' cellpadding='0'>
+          <tr class="celdaGris">
+            <td height="20" class="titulos2">LISTADO DE: </td>
+          </tr>
+          <tr>
+            <td height="20" class="info">{$NOMBRE_CARPETA}</td>
+          </tr>
+        </table>
+    </td>
+    <td width='33%' height="6" >
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="10%" class="titulos2" height="20">USUARIO:</td>
+        </tr>
+        <tr>
+          <td width="90%" height="20"  class="info">{$USUA_NOMBRE}</td>
+        </tr>
+      </table>
+    </td>
+    <td height="6" width="33%">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="16%"  class="titulos2" height="20">DEPENDENCIA:</td>
+        </tr>
+        <tr>
+          <td width="84%" height="20" class="info">{$DEPE_NOMBRE}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  </table>
+  <form name="form1" id="form1" action="{$ORFEO_URL}{$ENLACE_FORM_ENVIO}" method="GET">
+  {if $VER_OPCIONES_RADICADO}
+    {include file='cuerpo_javascript.tpl'}
+  {/if}
+    <input type="hidden" name="checkValue[{$VER_RADICADO}]" value="CHKANULAR">
+    <input type="hidden" name="enviara" value="9">
+  </form>
+  <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%" >
+    <form action="{$ENLACE_VER_RADICADO}" method="GET" name="form2">
+    <input type="hidden" name="fechah" value="{$FECHAH}">
+    <input type='hidden' name='verrad' value="{$VER_RADICADO}">
+  {if $MOSTRAR_ERROR_CONSULTA}
+    <center>NO SE HA PODIDO REALIZAR LA CONSULTA</center>
+  {/if}
+      <tr>
+        <td height="99" rowspan="4" width="3%" valign="top" class="listado2">&nbsp;</td>
+        <td height="8" width="94%" class="listado2">
+          <table border=0 width=69% cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="13%" valign="bottom" class="">
+                <a href="./ver_radicado.php?{$HDATOS}3">
+                  <img src="./imagenes/infoGeneral{$DATOS3}.gif" alt="" border="0" width="110" height="25">
+                </a>
+              </td>
+              <td width="13%" valign="bottom" class="">
+                <a href="ver_radicado.php?{$HDATOS}1">
+                  <img src="./imagenes/historico{$DATOS1}.gif" alt="" border="0" width="110" height="25">
+                </a>
+              </td>
+              <td width="13%" valign="bottom" class="">
+                <a href="ver_radicado.php?{$HDATOS}2">
+                  <img src="./imagenes/documentos{$DATOS2}.gif" alt="" border="0" width="110" height="25">
+                </a>
+              </td>
+              <td width="61%" valign="bottom" class="">
+                <a href='ver_radicado.php?{$HDATOS}4'>
+                  <img src='./imagenes/expediente{$DATOS4}.gif' alt='' border=0 width="110" height="25">
+                </a>
+              </td>
+              <td width="61%" valign="bottom" class="">&nbsp;</td>
+            </tr>
+          </table>
+        </td>
+        <td height="149" rowspan="4" class="" width="3%">&nbsp;</td>
+      </tr>
+      <tr>
+        {if $MOSTRAR_PESTANAS}
+        <td bgcolor="" width="94%" height="100">
+          <!-- carga la plantilla segun la pestana que este activa -->
+          {include file="$PLANTILLA"}
+        </td>
+      </tr>
+      <input type="hidden" name="menu_ver" value="{$MENU_VER}">
+      <tr>
+        <td height="17" width="94%" class="celdaGris">
+        {else}
+        </td>
+    </tr>
+  </table>
+      <form name="form1" action="enviar.php" method='GET'>
+      <input type="hidden" name="depsel">
+      <input type="hidden" name="depsel8">
+      <input type="hidden" name="carpper">
+      <center>
+        <span class="titulosError">
+          SU SESION HA TERMINADO O HA SIDO INICIADA EN OTRO EQUIPO
+        </span>
+        <br>
+      </center>
+      </form>
+      {/if}
+      {if $MOSTRAR_ERROR_SESION}
+        <center>
+          <span class="eerrores">NO TIENE AUTORIZACION PARA INGRESAR</span>
+          <br>
+          <span class='eerrores'>
+            <a href='login.php' target=_parent>Por Favor intente validarse de nuevo. Presione aca!</a>
+          </span>
+        </center>
+      {/if}
+      </td>
+      </tr>
+      <tr>
+        <td height="15" width="94%" class="listado2">&nbsp;</TD>
+      </tr>
+  </form>
+  </table>
+  </body>
+  <script>
+    ver_complementos('tb_general');
+  </script>
+</html>
