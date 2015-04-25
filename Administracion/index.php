@@ -66,5 +66,5 @@
   $smarty->assign('ENLACE_ESP', $enlace_esp);
   $smarty->assign('ORFEO_URL', ORFEO_URL);
 
-  $smarty->display('index_administracion.html');
+  $smarty->display('index_administracion.tpl');
 ?>
