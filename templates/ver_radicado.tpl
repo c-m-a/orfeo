@@ -68,55 +68,37 @@
           </div>
         </div>
       </div>
-      <table>
+      <div class="row">
+        <div class="col-md-12">
           {if $MOSTRAR_ERROR_CONSULTA}
-          <center>NO SE HA PODIDO REALIZAR LA CONSULTA</center>
+          <strong>NO SE HA PODIDO REALIZAR LA CONSULTA</strong>
           {/if}
-          <tr>
-            <td>&nbsp;</td>
-            <td>
-            </td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td>
-            {if $MOSTRAR_PESTANAS}
-            </td>
-            <td>
-              <!-- carga la plantilla segun la pestana que este activa -->
-              {include file="$PLANTILLA"}
-            </td>
-          </tr>
+          {if $MOSTRAR_PESTANAS}
+          <!-- carga la plantilla segun la pestana que este activa -->
+          {include file="$PLANTILLA"}
           <input type="hidden" name="menu_ver" value="{$MENU_VER}">
-          <tr>
-            <td>
-            {else}
-            </td>
-        </tr>
-      </table>
+        </div>
+      </div>
+          {else}
+      <div class="row">
+        <div class="col-md-12">
         <form name="form1" action="enviar.php" method='GET'>
           <input type="hidden" name="depsel">
           <input type="hidden" name="depsel8">
           <input type="hidden" name="carpper">
-          <center>
-            <span class="titulosError">
-              SU SESION HA TERMINADO O HA SIDO INICIADA EN OTRO EQUIPO
-            </span>
-            <br>
-          </center>
+          SU SESION HA TERMINADO O HA SIDO INICIADA EN OTRO EQUIPO
         </form>
+        </div>
+      </div>
         {/if}
         {if $MOSTRAR_ERROR_SESION}
-          <center>
-            <span>NO TIENE AUTORIZACION PARA INGRESAR</span>
-            <br>
-            <span>
-              <a href="./index.php" target="_parent">Por Favor intente validarse de nuevo. Presione aca!</a>
-            </span>
-          </center>
+      <div class="row">
+        <div class="col-md-12">
+          <strong>NO TIENE AUTORIZACION PARA INGRESAR</strong>
+          <a href="./index.php" target="_parent">Por Favor intente validarse de nuevo. Presione aca!</a>
+        </div>
+      </div>
         {/if}
-        </td>
-      </table>
     </div>
     <!-- footer -->
     {include file="footer.tpl"}
