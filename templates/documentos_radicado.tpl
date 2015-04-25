@@ -258,38 +258,38 @@
             </li>
             {/if}
             {if $ANEXO_RADICADO.MOSTRAR_RADICAR_3}
-                  <li>
-            <a href="javascript:radicarArchivo('{$ANEXO_RADICADO.COD_DOCU}','{$ANEXO_RADICADO.LINK_ARCHIVO}','si',{$ANEXO_RADICADO.SGD_PNUFE_CODI},'{$ANEXO_RADICADO.TP_RADICADO}','{$ANEXO_RADICADO.APLINTEG}','{$ANEXO_RADICADO.NUM_EXT_DOC}');">Radicar(-{$ANEXO_RADICADO.TP_RADICADO})</a>
-                  </li>
+            <li>
+              <a href="javascript:radicarArchivo('{$ANEXO_RADICADO.COD_DOCU}','{$ANEXO_RADICADO.LINK_ARCHIVO}','si',{$ANEXO_RADICADO.SGD_PNUFE_CODI},'{$ANEXO_RADICADO.TP_RADICADO}','{$ANEXO_RADICADO.APLINTEG}','{$ANEXO_RADICADO.NUM_EXT_DOC}');">Radicar(-{$ANEXO_RADICADO.TP_RADICADO})</a>
+            </li>
             {/if}
             {if $ANEXO_RADICADO.MOSTRAR_REGENERAR}
-                  <li>
-            <a href="javascript:radicarArchivo('{$ANEXO_RADICADO.COD_DOCU}','{$ANEXO_RADICADO.LINK_ARCHIVO}','{$ANEXO_RADICADO.COD_RADI}',{$ANEXO_RADICADO.SGD_PNUFE_CODI},'','',{$ANEXO_RADICADO.NUM_EXT_DOC});">
+            <li>
+              <a href="javascript:radicarArchivo('{$ANEXO_RADICADO.COD_DOCU}','{$ANEXO_RADICADO.LINK_ARCHIVO}','{$ANEXO_RADICADO.COD_RADI}',{$ANEXO_RADICADO.SGD_PNUFE_CODI},'','',{$ANEXO_RADICADO.NUM_EXT_DOC});">
               Re-Generar
-            </a>
-                  </li>
+              </a>
+            </li>
             {/if}
             {if $ANEXO_RADICADO.MOSTRAR_NUMERAR}
-                  <li>
-            <a href="javascript:numerarArchivo('{$ANEXO_RADICADO.COD_DOCU}','{$ANEXO_RADICADO.LINK_ARCHIVO}','si',{$ANEXO_RADICADO.SGD_PNUFE_CODIGO});">
+            <li>
+              <a href="javascript:numerarArchivo('{$ANEXO_RADICADO.COD_DOCU}','{$ANEXO_RADICADO.LINK_ARCHIVO}','si',{$ANEXO_RADICADO.SGD_PNUFE_CODIGO});">
               Numerar
-            </a>
-                  </li>
+              </a>
+            </li>
             {/if}
             {if $ANEXO_RADICADO.MOSTRAR_BORRAR_2}
-                  <li>
+            <li>
               <a href="javascript:borrarArchivo('{$ANEXO_RADICADO.COD_DOCU}','{$ANEXO_RADICADO.LINK_ARCHIVO}','{$ANEXO_RADICADO.COD_RADI}','{$ANEXO_RADICADO.SGD_PNUFE_CODI}');">Borrar</a>
-                  </li>
+            </li>
             {/if}
             {if $ANEXO_RADICADO.MOSTRAR_TIPIFICAR}
-                  <li>
+            <li>
               <a href="javascript:ver_tipodocuAnex('{$ANEXO_RADICADO.COD_RADI}','{$ANEXO_RADICADO.ANEXO}',{$ANEXO_RADICADO.COD_SERIE},{$ANEXO_RADICADO.TSUBSERIE});">Tipificar</a>
-                  </li>
+            </li>
             {/if}
             {if $ANEXO_RADICADO.MOSTRAR_RETIPIFICAR}
-                  <li>
+            <li>
               <a href="javascript:ver_tipodocuAnex('{$ANEXO_RADICADO.COD_RADI}','{$ANEXO_RADICADO.ANEXO}',{$ANEXO_RADICADO.COD_SERIE},{$ANEXO_RADICADO.TSUBSERIE});">Re-Tipificar</a>
-                  </li>
+            </li>
             {/if}
           </ul>
         </div>
