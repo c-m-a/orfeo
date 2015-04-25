@@ -2,17 +2,19 @@
     swradics = 0;
     radicando = 0;
     function verDetalles(anexo,tpradic,aplinteg,num) {
-    optAsigna = "";
-    if (swradics==0) {
-      optAsigna="&verunico=1";
+      optAsigna = "";
+      
+      if (swradics == 0)
+        optAsigna="&verunico=1";
+      
+      contadorVentanas=contadorVentanas+1;
+      nombreventana="ventanaDetalles"+contadorVentanas;
+      url="{$ENLACE_DETALLES_ARCHIVO}" + anexo;
+      url="{$ENLACE_NUEVO_ARCHIVO}"+anexo+"{$VAR_NUEVO_ARCHIVO}"+"&tpradic="+tpradic+"&aplinteg="+aplinteg+optAsigna;
+      window.open(url,nombreventana,'top=0,height=580,width=640,scrollbars=yes,resizable=yes');
+      return;
     }
-    contadorVentanas=contadorVentanas+1;
-    nombreventana="ventanaDetalles"+contadorVentanas;
-    url="{$ENLACE_DETALLES_ARCHIVO}" + anexo;
-    url="{$ENLACE_NUEVO_ARCHIVO}"+anexo+"{$VAR_NUEVO_ARCHIVO}"+"&tpradic="+tpradic+"&aplinteg="+aplinteg+optAsigna;
-    window.open(url,nombreventana,'top=0,height=580,width=640,scrollbars=yes,resizable=yes');
-    return;
-    }
+
     function borrarArchivo(anexo,linkarch,radicar_a,procesoNumeracionFechado){
       if (confirm('Estas seguro de borrar este archivo anexo ?')) {
         contadorVentanas = contadorVentanas+1;
@@ -20,7 +22,7 @@
         url = "{$ENL_LISTA_ANEXOS_TRANS}"+anexo+"&linkarchivo="+linkarch+"&numfe="+procesoNumeracionFechado+"{$VARS_USUARIO}";
         window.open(url,nombreventana,'height=100,width=180');
       }
-    return;
+      return;
     }
 
     function radicarArchivo(anexo,linkarch,radicar_a,procesoNumeracionFechado,tpradic,aplinteg,numextdoc) {
@@ -38,7 +40,7 @@
         url = {$ENL_LISTA_ANEXOS_RADI}
         window.open(url,nombreventana,'height=450,width=600');
       }
-    return;
+      return;
     }
 
     function numerarArchivo(anexo,linkarch,radicar_a,procesoNumeracionFechado){
@@ -48,16 +50,17 @@
         url = "{$ENL_LISTA_ANEXOS_NUME}"+procesoNumeracionFechado;
         window.open(url,nombreventana,'height=450,width=600');
       }
-    return;
+      return;
     }
 
-    function asignarRadicado(anexo,linkarch,radicar_a,numextdoc){
-      if (radicando>0){
+    function asignarRadicado(anexo,linkarch,radicar_a,numextdoc) {
+      
+      if (radicando>0) {
         alert ("Ya se esta procesando una radicacion, para re-intentarlo hagla click sobre la pesta�a de documentos");
         return;
       }
 
-         radicando++;
+      radicando++;
 
       if (confirm('Esta seguro de asignarle el numero de Radicado a este archivo ?')) {
         contadorVentanas=contadorVentanas+1;
@@ -76,7 +79,7 @@
       window.open("{$ENLACE_TIPO_ANEXO}","height=300,width=750,scrollbars=yes");
     }
 
-    function vistaPreliminar(anexo,linkarch,linkarchtmp){
+    function vistaPreliminar(anexo,linkarch,linkarchtmp) {
       contadorVentanas=contadorVentanas+1;
       nombreventana="mainFrame";
       url="{$ENLACE_GEN_ARCHIVO}";
@@ -84,10 +87,11 @@
       return;
     }
     
-    function nuevoArchivo(asigna){
+    function nuevoArchivo(asigna) {
       contadorVentanas=contadorVentanas+1;
       optAsigna="";
-      if (asigna==1){
+
+      if (asigna == 1) {
         optAsigna="&verunico=1";
       }
 
@@ -97,9 +101,10 @@
       return;
     }
 
-    function nuevoEditWeb(asigna){
+    function nuevoEditWeb(asigna) {
       contadorVentanas=contadorVentanas+1;
       optAsigna="";
+
       if (asigna==1) {
         optAsigna="&verunico=1";
       }
@@ -111,9 +116,10 @@
     }
 
     function Plantillas(plantillaper1) {
-      if(plantillaper1==0) {
+      
+      if(plantillaper1==0)
         plantillaper1="";
-      }
+      
       contadorVentanas=contadorVentanas+1;
       nombreventana="ventanaNuevo"+contadorVentanas;
       urlp="{$ENLACE_PLANTILLA}"+plantillaper1;
@@ -121,10 +127,11 @@
       return;
     }
 
-    function Plantillas_pb(plantillaper1){
-      if(plantillaper1==0) {
+    function Plantillas_pb(plantillaper1) {
+      
+      if(plantillaper1==0)
         plantillaper1="";
-      }
+      
       contadorVentanas=contadorVentanas+1;
       nombreventana="ventanaNuevo"+contadorVentanas;
       urlp="{$ENLACE_CREAR_PLANTILLA}"+plantillaper1;
@@ -152,9 +159,9 @@
       <th>
         <img src="{$ORFEO_URL}/imagenes/estadoDoc.gif">
       </th>
-      <th>Radicado</th>
-      <th>Propiedades</th>
       <th></th>
+      <th class="text-center">Radicado</th>
+      <th class="text-center">Propiedades</th>
     </tr>
     {foreach $ANEXOS_RADICADO as $ANEXO_RADICADO}
     {strip}
@@ -162,36 +169,6 @@
       <td> 
         {$ANEXO_RADICADO.IMG_ESTADO}
       </td>
-      <td>
-        {if $ANEXO_RADICADO.MOSTRAR_ENL_DESCARGAR}
-          <a class="vinculos" href="{$ANEXO_RADICADO.ENLACE_DESCARGA}">
-            {$ANEXO_RADICADO.NUMERO_RADICADO_HIST}
-          </a>
-        {else}
-          {$ANEXO_RADICADO.NUMERO_RADICADO_HIST}
-        {/if}
-        <br/>
-        <strong>Descripcion:</strong> {$ANEXO_RADICADO.DESCR}
-        <br/>
-        <strong>Creador:</strong> {$ANEXO_RADICADO.CREA}
-        <br/>
-        <strong>Tama&ntilde;o (Kb):</strong>
-        {$ANEXO_RADICADO.TAMA}
-      </td>
-      <td>
-        <strong>Anexado en:</strong> {$ANEXO_RADICADO.FEANEX}
-        <br/>
-        <strong>Tipo:</strong> {$ANEXO_RADICADO.EXTENSION_ARCHIVO}
-        <br/>
-        <strong>TRD?:</strong> {$ANEXO_RADICADO.MSG_TRD}
-        <br/>
-        <strong>Solo lectura?:</strong> {$ANEXO_RADICADO.RO}
-      </td>
-      {if $ANEXO_RADICADO.MOSTRAR_SECUENCIA}
-      <td>
-        {$ANEXO_RADICADO.SECUENCIA_HIST}<br>{$ANEXO_RADICADO.FECDOC}
-      </td>
-      {/if}
       <td>
         <!-- dropdown opciones button -->
         <div class="btn-group">
@@ -295,6 +272,36 @@
         </div>
         <!-- end dropdown opciones button -->
       </td>
+      <td>
+        {if $ANEXO_RADICADO.MOSTRAR_ENL_DESCARGAR}
+          <a class="vinculos" href="{$ANEXO_RADICADO.ENLACE_DESCARGA}">
+            {$ANEXO_RADICADO.NUMERO_RADICADO_HIST}
+          </a>
+        {else}
+          {$ANEXO_RADICADO.NUMERO_RADICADO_HIST}
+        {/if}
+        <br/>
+        <strong>Descripcion:</strong> {$ANEXO_RADICADO.DESCR}
+        <br/>
+        <strong>Creador:</strong> {$ANEXO_RADICADO.CREA}
+        <br/>
+        <strong>Tama&ntilde;o (Kb): </strong>
+        {$ANEXO_RADICADO.TAMA}
+      </td>
+      <td>
+        <strong>Anexado en:</strong> {$ANEXO_RADICADO.FEANEX}
+        <br/>
+        <strong>Tipo:</strong> {$ANEXO_RADICADO.EXTENSION_ARCHIVO}
+        <br/>
+        <strong>TRD?:</strong> {$ANEXO_RADICADO.MSG_TRD}
+        <br/>
+        <strong>Solo lectura?:</strong> {$ANEXO_RADICADO.RO}
+      </td>
+      {if $ANEXO_RADICADO.MOSTRAR_SECUENCIA}
+      <td>
+        {$ANEXO_RADICADO.SECUENCIA_HIST}<br>{$ANEXO_RADICADO.FECDOC}
+      </td>
+      {/if}
     </tr>
     {/strip}
     {/foreach}
