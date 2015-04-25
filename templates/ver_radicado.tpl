@@ -15,7 +15,7 @@
       <!-- end cabecera de informacion tpl -->
       <div class="row">
         <div class="col-md-3">
-          <a class="btn btn-info" "href="javascript:history.back();">Volver</a>
+          <a class="btn btn-info" href="javascript:history.back();">Volver</a>
         </div>
         <div class="col-md-6 text-center">
           <strong>DATOS DEL RADICADO No.</strong>
