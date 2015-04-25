@@ -126,43 +126,47 @@
         {/if}
       </td>
       <td>
+        {if $VER_SEGURIDAD}
+        <input class="btn btn-warning" type="button" name="mostrar_causal" value="Nivel de Seguridad" onClick="window.open('{$ENLACE_SEGURIDAD}','Cambio Nivel de Seguridad Radicado', 'height=220, width=300,left=350,top=300,scroll:yes')">
+        {else}
         <strong>Nivel de Seguridad:</strong>
+        {/if}
       </td>
       <td colspan="3">
         {$TIPO_RADICADO}
-        {if $VER_SEGURIDAD}
-          <input type="button" name="mostrar_causal" value="..." onClick="window.open('{$ENLACE_SEGURIDAD}','Cambio Nivel de Seguridad Radicado', 'height=220, width=300,left=350,top=300,scroll:yes')">
-        {/if}
-      </td>
-    </tr>
-    <tr> 
-      <td><strong>TRD:</strong></td>
-      <td colspan="6">
-          {$SERIE_NOMBRE}/{$SUB_SERIE_NOMBRE}/{$TPDOC_NOMBRE_TRD}
-        {if MOSTRAR_TRD}
-        <input type="button" name="mosrtar_tipo_doc2" value="..." onClick="ver_tipodocuTRD({$COD_SERIE},{$SUBSERIE});">
-        {/if}
-      </td>
-    </tr>
-    <tr>
-    <td>
-      <strong>Sector:</strong>
-    </td>
-    <td colspan="6">
-      {$SECTOR_NOMBRE}
-      <input type="button" name="mostrar_causal" value="..." onClick="window.open({$ENLACE_TIPIFICACION},'Tipificacion_Documento','height=300,width=750,scrollbars=no')">
-        <input type="hidden" name="mostrarCausal" value="N">
       </td>
     </tr>
     <tr> 
       <td>
-        <strong>Causal:</strong>
+        {if MOSTRAR_TRD}
+        <input class="btn btn-warning" type="button" name="mosrtar_tipo_doc2" value="TRD" onClick="ver_tipodocuTRD({$COD_SERIE},{$SUBSERIE});">
+        {else}
+        <strong>TRD:</strong>
+        {/if}
+      </td>
+      <td colspan="6">
+        {$SERIE_NOMBRE}/{$SUB_SERIE_NOMBRE}/{$TPDOC_NOMBRE_TRD}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input class="btn btn-warning" type="button" name="mostrar_causal" value="Sector" onClick="window.open({$ENLACE_TIPIFICACION},'Tipificacion_Documento','height=300,width=750,scrollbars=no')">
+      </td>
+      <td colspan="6">
+      {$SECTOR_NOMBRE}
+      <input type="hidden" name="mostrarCausal" value="N">
+      </td>
+    </tr>
+    <tr> 
+      <td>
+        {if $MOSTRAR_TIPIFICACION}
+        <input class="btn btn-warning" type="button" name="mostrar_causal" value="Causal" onClick="window.open({$ENLACE_TIPIFICACION},'Tipificacion_Documento','height=300,width=750,scrollbars=no')">
+        {else}
+        <strong>Sector:</strong>
+        {/if} 
       </td>
       <td colspan="6"> 
         {$CAUSAL_NOMBRE}/{$DCAUSAL_NOMBRE}/{$DDCAUSAL_NOMBRE}
-        {if $MOSTRAR_TIPIFICACION}
-          <input type="button" name="mostrar_causal" value="..." onClick="window.open({$ENLACE_TIPIFICACION},'Tipificacion_Documento','height=300,width=750,scrollbars=no')">
-        {/if} 
       </td>
     </tr>
   </table>
