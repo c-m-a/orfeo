@@ -207,7 +207,7 @@
 {if $MOSTRAR_DEVOLUCION}
 				<tr>
 					<td>
-						<img src='imagenes/menu.gif' alt='Documentos para archivar' title='Documentos para archivar' border=0 align='absmiddle'>
+						<img src="imagenes/menu.gif" alt="Documentos para archivar" title="Documentos para archivar" border="0" align="absmiddle">
 					</td>
 					<td>
 						<span class="Estilo12">
@@ -237,14 +237,7 @@
               </td>
             </tr>
 {/if}
-          <tr>
-            <td width="25">
-              <img src="imagenes/menu.gif" width="15" height="18">
-            </td>
-            <td width="125">
-              <a href="{$ENLACE_DOCUWARE}" target='mainFrame' class="menu_princ">Archivo Central Docuware</a>
-            </td>
-          </tr>
+
 {if $MOSTRAR_LIQUIDACION}
           <tr valign="middle">
             <td width="25"><img src="imagenes/menu.gif" width="15" height="18"></td>

@@ -225,7 +225,6 @@
   $smarty->assign('ENLACE_DOCUMENTAL',        $enlace_documental);
   $smarty->assign('MOSTRAR_LIQUIDACION',      $mostrar_liquidacion);
   $smarty->assign('ENLACE_LIQUIDACION',       $enlace_liquidacion);
-  $smarty->assign('ENLACE_DOCUWARE',          $enlace_docuware);
   $smarty->assign('MOSTRAR_ENTIDADES',        $usua_perm_adment);
   $smarty->assign('ENLACE_ENTIDADES',         $enlace_entidades);
   $smarty->assign('MOSTRAR_CTL_LEGALIDAD',    $mostrar_ctl_legalidad);
