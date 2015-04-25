@@ -1,17 +1,14 @@
-<? 
+<?php
 session_start();
 /**
- * Este programa despliega el men� principal de administraci�n
- * tablas de Retenci�n documental
+ * Este programa despliega el menu principal de administracion
+ * tablas de Retencion documental
  * @version     1.0
- */
-error_reporting(7);
-
-/*
  * Lista Subseries documentales
  * @autor Jairo Losada
  * @fecha 2009/06 Modificacion Variables Globales.
  */
+
 foreach ($_GET as $key => $valor)   ${$key} = $valor;
 foreach ($_POST as $key => $valor)   ${$key} = $valor;
 $krd = $_SESSION["krd"];
@@ -38,7 +35,7 @@ $phpsession = session_name()."=".session_id(); ?>
 <table width="47%" align="center" border="0" cellpadding="0" cellspacing="5" class="borde_tab">
      <tr> 
       <td height="25" class="titulos4"> 
-        ADMINISTRACION  -TABLAS RETENCION DOCUMENTAL- 
+        ADMINISTRACION | TABLAS RETENCION DOCUMENTAL- 
       </td>
     </tr>
     <tr align="center"> 
