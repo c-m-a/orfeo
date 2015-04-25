@@ -5,17 +5,12 @@
   </script>
   <table class="table">
     <tr>
-      <td colspan="2">
-      <strong>ASUNTO:</strong>
-      <br/>
-      {$ASUNTO_RADICADO}
-    </td>
-    <td></td>
-    <td colspan="3">
-      <strong>Fecha de radicado:</strong>
-      <br/>
-      {$RADI_FECH_RADI}
-    </td>
+      <td colspan="6">
+        <strong>Asunto: </strong>
+        {$ASUNTO_RADICADO}<br/>
+        <strong>Fecha de radicaci&oacute;n: </strong>
+        {$RADI_FECH_RADI}
+      </td>
     </tr>
     <tr> 
       <td colspan="2">

@@ -40,8 +40,8 @@
     <table class="table table-striped table-hover">
       <tr>
         <th class="text-center">Fecha</th>
-        <th class="text-center">Us. origen | Comentario</th>
-        <th class="text-center">Dependencia | Transacci&oacute;n</th>
+        <th class="text-center">Us. origen | Comentario | Transacci&oacute;n</th>
+        <th class="text-center">Dependencia</th>
       </tr>
       {foreach $ESTADOS as $ESTADO}
       {strip}
@@ -49,10 +49,10 @@
         <td>{$ESTADO.HIST_FECH1}</td>
         <td>
           {$ESTADO.GET_USUA_NOMB}<br/>
-          <strong>Comentario:</strong><br/>&nbsp;{$ESTADO.HIST_OBSE}<br/>
           {if $ESTADO.GET_DESCRIPCION}
-          <strong>Tipo transacci&oacute;n:</strong> {$ESTADO.GET_DESCRIPCION}
+          <strong>Tipo transacci&oacute;n:</strong> {$ESTADO.GET_DESCRIPCION}<br/>
           {/if}
+          <strong>Comentario:</strong><br/>&nbsp;{$ESTADO.HIST_OBSE}
         </td>
         <td>
           {$ESTADO.DEPENDENCIA_NOMBRE}<br/>
