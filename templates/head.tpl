@@ -5,7 +5,7 @@
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <!-- Custom styles for this template -->
-    <link href="./css/navbar-fixed-top.css" rel="stylesheet">
+    <link href="{$ORFEO_URL}css/navbar-fixed-top.css" rel="stylesheet">
     
     <!-- Custom styles for this template -->
-    <link href="./css/custom.css" rel="stylesheet">
+    <link href="{$ORFEO_URL}/css/custom.css" rel="stylesheet">
