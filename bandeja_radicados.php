@@ -8,7 +8,7 @@
    * @autor Jairo Losada 2009-05
    * @modifcado por Cmauricio Parra cualquier pregunta o soporte enviar a cmauriciop@yahoo.com.mx
                 http://cmauricio.org/orfeo4
-   * @licencia GNU/GPL Ver. 2
+   * @licencia GNU/GPL Ver. 3
    */
   session_start();
   
