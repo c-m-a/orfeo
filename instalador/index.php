@@ -1,6 +1,6 @@
 <?php
 
-  if (is_file('../config.inc.php'))
+  if (is_file('./config.php'))
     exit('Orfeo ya se encuentra instalado');
 
   // Nombre Applicacion
@@ -50,10 +50,9 @@
   
   // Datos Servidor
   $nombre_servidor  = $_SERVER['SERVER_NAME'];
-  $directorio_app   = rtrim($_SERVER['REQUEST_URI'], 'instalador/');
+  $directorio_app   = 'instalador/';
   $protocolo        = $_SERVER['REQUEST_SCHEME'];
-  $url_app          = $protocolo . '://' . $nombre_servidor . $directorio_app . '/';
-
+  $url_app          = $protocolo . '://' . $nombre_servidor . $_SERVER['REQUEST_URI'] . $directorio_app;
   $estado = (isset($_GET['estado']))? $_GET['estado'] : 0;
   
   if (isset($estado)) {
@@ -63,7 +62,6 @@
     if ($existe_archivo) {
       include ($archivo_proceso);
     } else {
-      var_dump($archivo_proceso);
       exit('No existe archivo para continuar el proceso de intalacion');
     }
   }

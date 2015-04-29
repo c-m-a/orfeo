@@ -4,7 +4,11 @@
     //include ('mantenimiento.php');
   } else {
     //include ('./config.php');
-    header ('Location: ' . URL_INSTALADOR);
+    $nombre_servidor  = $_SERVER['SERVER_NAME'];
+    $directorio_app   = 'instalador/';
+    $protocolo        = $_SERVER['REQUEST_SCHEME'];
+    $url_orfeo        = $protocolo . '://' . $nombre_servidor . $_SERVER['REQUEST_URI'] . $directorio_app;
+    header ('Location: ' . $url_orfeo);
     exit();
   }
 ?>
