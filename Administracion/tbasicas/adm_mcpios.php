@@ -1,15 +1,14 @@
 <?php
 session_start();
-//error_reporting(7);
 $ruta_raiz = "../..";
 if($_SESSION['usua_admin_sistema'] !=1 ) die(include "$ruta_raiz/errorAcceso.php");
 $ADODB_COUNTRECS = false;
-include_once($ruta_raiz.'/config.php'); 			// incluir configuracion.
-include_once($ruta_raiz."/include/db/ConnectionHandler.php");
-$db = new ConnectionHandler("$ruta_raiz");
-//$db->conn->debug = true;	
-if ($db)
-{	$db->conn->SetFetchMode(ADODB_FETCH_ASSOC);
+include_once('../../config.php'); 			// incluir configuracion.
+include_once("../../include/db/ConnectionHandler.php");
+$db = new ConnectionHandler($ruta_raiz);
+
+if ($db) {
+  $db->conn->SetFetchMode(ADODB_FETCH_ASSOC);
 	$error = 0;
 	if (isset($_POST['btn_accion']))
 	{	$dpto_tmp = explode("-",$codep_us1);
