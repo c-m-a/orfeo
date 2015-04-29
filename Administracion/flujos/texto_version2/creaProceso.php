@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 
 print_r($_POST);
@@ -15,15 +15,43 @@ $tip3Nombre=$_SESSION["tip3Nombre"];
 $tip3desc = $_SESSION["tip3desc"];
 $tip3img =$_SESSION["tip3img"];
 
-
-
-error_reporting(0);
-$ruta_raiz = "../../..";
-//if(!isset($_SESSION['dependencia']))	include "$ruta_raiz/rec_session.php";
+$ruta_raiz = '../../..';
 $entrada = 0;
 $modificaciones = 0;
 $salida = 0;
 
+include "$ruta_raiz/config.php";
+include_once "$ruta_raiz/include/db/ConnectionHandler.php";
+$db = new ConnectionHandler($ruta_raiz);
+if (!defined('ADODB_FETCH_ASSOC'))define('ADODB_FETCH_ASSOC',2);
+$ADODB_FETCH_MODE = ADODB_FETCH_ASSOC;
+
+	$resultadoInsercion = 1;
+
+	if( ( $_POST['nombreProceso'] != '' &&  $_POST['codserie'] != 0 &&  $_POST['tsub'] != 0  ) ||  ( $_POST['nombreProceso'] != '' &&  $_POST['codserie'] == 0 &&  $_POST['tsub'] == 0 )){
+			include "$ruta_raiz/include/tx/Proceso.php";
+	 		$flujo = new Proceso( $db,  $nombreProceso,$codserie, $tsub, $flujoAutomatico,  $terminosProceso );	
+			$resultadoInsercion = $flujo-> insertaProceso();
+	}
+  
+  include "$ruta_raiz/trd/actu_matritrd.php";  
+  if(!$codserie) $codserie = 0;
+  $fechah=date("dmy") . " ". time("h_m_s");
+  $fecha_hoy = Date("Y-m-d");
+  $sqlFechaHoy=$db->conn->DBDate($fecha_hoy);
+  $check=1;
+  $fechaf=date("dmy") . "_" . time("hms");
+  $num_car = 4;
+  $nomb_varc = "sgd_srd_codigo";
+  $nomb_varde = "sgd_srd_descrip";
+    include "$ruta_raiz/include/query/trd/queryCodiDetalle.php";
+  $querySerie = "select distinct ($sqlConcat) as detalle, sgd_srd_codigo 
+           from sgd_srd_seriesrd 
+       order by detalle
+        ";
+  $rsD=$db->conn->query($querySerie);
+  $comentarioDev = "Muestra las Series Docuementales";
+  include "$ruta_raiz/include/tx/ComentarioTx.php";
 ?>
 <html>
 <head>
@@ -59,26 +87,6 @@ $salida = 0;
 
 </head>
 <body>
-<?
-include "$ruta_raiz/config.php";
-include_once "$ruta_raiz/include/db/ConnectionHandler.php";
-$db = new ConnectionHandler( "$ruta_raiz" );
-if (!defined('ADODB_FETCH_ASSOC'))define('ADODB_FETCH_ASSOC',2);
-$ADODB_FETCH_MODE = ADODB_FETCH_ASSOC;
-$db->conn->debug = true;
-//<form name='frmCrear' action='<?=$action
-	$resultadoInsercion = 1;
-//		include "$ruta_raiz/debugger.php";
-
-	if( ( $_POST['nombreProceso'] != '' &&  $_POST['codserie'] != 0 &&  $_POST['tsub'] != 0  ) ||  ( $_POST['nombreProceso'] != '' &&  $_POST['codserie'] == 0 &&  $_POST['tsub'] == 0 )){
-//			echo "<br>Viene Proceso en POST, luego debería crearlo</br>";
-			include "$ruta_raiz/include/tx/Proceso.php";
-	 		$flujo = new Proceso( $db,  $nombreProceso,$codserie, $tsub, $flujoAutomatico,  $terminosProceso );	
-			$resultadoInsercion = $flujo-> insertaProceso();
-//			echo "<br>Esto es lo que retorna: " . $resultadoInsercion . "</br>";
-
-	}
-?>
 <form name='frmCrearProceso' action='creaProceso.php' method="post">
 <table width="93%"  border="1" align="center">
   	<tr bordercolor="#FFFFFF">
@@ -101,24 +109,6 @@ $db->conn->debug = true;
 		<td width="25%" class="titulos2">SERIE</td>
 		<td width="25%" height="35" class="listado2">
 			<?php
-			    include "$ruta_raiz/trd/actu_matritrd.php";  
-			    if(!$codserie) $codserie = 0;
-				$fechah=date("dmy") . " ". time("h_m_s");
-				$fecha_hoy = Date("Y-m-d");
-				$sqlFechaHoy=$db->conn->DBDate($fecha_hoy);
-				$check=1;
-				$fechaf=date("dmy") . "_" . time("hms");
-				$num_car = 4;
-				$nomb_varc = "sgd_srd_codigo";
-				$nomb_varde = "sgd_srd_descrip";
-			   	include "$ruta_raiz/include/query/trd/queryCodiDetalle.php";
-				$querySerie = "select distinct ($sqlConcat) as detalle, sgd_srd_codigo 
-				         from sgd_srd_seriesrd 
-						 order by detalle
-						  ";
-				$rsD=$db->conn->query($querySerie);
-				$comentarioDev = "Muestra las Series Docuementales";
-				include "$ruta_raiz/include/tx/ComentarioTx.php";
 				print $rsD->GetMenu2("codserie", $codserie, "0:-- Seleccione --", false,"","onChange='submit()' class='select'" );
 			 ?>
 				</td>
@@ -126,19 +116,6 @@ $db->conn->debug = true;
 				<td width="25%" class="titulos2">SUBSERIE</td>
 				<td width="25%" height="35" class="listado2">
 				<?
-					$nomb_varc = "sgd_sbrd_codigo";
-					$nomb_varde = "sgd_sbrd_descrip";
-					include "$ruta_raiz/include/query/trd/queryCodiDetalle.php"; 
-				   	$querySub = "select distinct ($sqlConcat) as detalle, sgd_sbrd_codigo 
-					         from sgd_sbrd_subserierd 
-							 where sgd_srd_codigo = '$codserie'
-				 			       and ".$sqlFechaHoy." between sgd_sbrd_fechini and sgd_sbrd_fechfin
-							 order by detalle
-							  ";
-					$rsSub=$db->conn->query($querySub);
-					include "$ruta_raiz/include/tx/ComentarioTx.php";
-					print $rsSub->GetMenu2("tsub", $tsub, "0:-- Seleccione --", false,""," class='select'" );
-				
 				?> 
 				</td>
 			</tr>
@@ -155,8 +132,6 @@ $db->conn->debug = true;
 <?
 if (( $_POST['nombreProceso'] != '' &&  $_POST['codserie'] != 0 &&  $_POST['tsub'] != 0  ) ||  ( $_POST['nombreProceso'] != '' &&  $_POST['codserie'] == 0 &&  $_POST['tsub'] == 0 )) {
   ?>
-	<?
-	?>
 		<center>
 			<table class=borde_tab>
 				<tr>
@@ -167,9 +142,7 @@ if (( $_POST['nombreProceso'] != '' &&  $_POST['codserie'] != 0 &&  $_POST['tsub
 			</table>
 		</center>
 <?
-	
 }
-
 ?>
 </form>
 </body>
