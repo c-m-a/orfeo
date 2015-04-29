@@ -4,12 +4,15 @@
   
   $ruta_raiz 		= '../..';
   include('../../config.php');
-  include('../../include/Smarty/libs/Smarty.class.php');
-  include('../../include/db/ConnectionHandler.php');
+  include(SMARTY_TEMPLATE);
+  include(ORFEO_PATH . 'include/db/ConnectionHandler.php');
   require('./php-barcode.php');
   
-  foreach ($_GET as $key=>$valor) ${$key} = $valor;
-  foreach ($_POST as $key=>$valor) ${$key} = $valor;
+  foreach ($_GET as $key=>$valor)
+    ${$key} = $valor;
+  
+  foreach ($_POST as $key=>$valor)
+    ${$key} = $valor;
   
   $smarty = new Smarty();
   $smarty->template_dir = ORFEO_PATH . '/templates';
