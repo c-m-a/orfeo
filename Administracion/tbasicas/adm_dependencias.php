@@ -62,28 +62,31 @@ if ($db) {
 				//$db->conn->BeginTrans();
 				//Agregamos en el vector $record los registros de código y secuencias.
 				$record['DEPE_CODI'] = $_POST['txtIdDep'];
-				foreach ($Vec_Trad as $tmp)
-				{
+				foreach ($Vec_Trad as $tmp) {
 					$tmp1 = $tmp['ID'];
-					if ($_POST['slc_tr'.$tmp1] > 0)
-					{
-						$record['DEPE_RAD_TP'.$tmp1] = $_POST['slc_tr'.$tmp1];
-					}
-					else
-					{
-					 	$record['DEPE_RAD_TP'.$tmp1] = 'null';
-				}	}
+
+          $record['DEPE_RAD_TP'.$tmp1] = ($_POST['slc_tr'.$tmp1] > 0)? $_POST['slc_tr'.$tmp1] : 'null';
+        }
 				$tabla = 'DEPENDENCIA';
 				$sql = $db->conn->GetInsertSQL($tabla,$record,true,null);
-				//creamos registro en la tabla dependencia
+				
+        //creamos registro en la tabla dependencia
 				$ok1 = $db->conn->Execute($sql);
-				//Crear estructura en bodega
+				
+        //Crear estructura en bodega
 				//Se llama esta clase UNICAMENTE con el fin de standarizar la obtencion del S.O. en que se ejecuta el servidor.
 				include($ruta_raiz.'/radsalida/masiva/OpenDocText.class.php');
 				$tmp_obj = new OpenDocText();
-                $rut_bodeg=str_replace('/',$tmp_obj->barra,$ruta_raiz).$tmp_obj->barra."bodega".$tmp_obj->barra.date('Y').$tmp_obj->barra.$record['DEPE_CODI'].$tmp_obj->barra."docs";
-				!is_dir($rut_bodeg)?$ok2 = mkdir($rut_bodeg,0777,true):$ok2=true;
-				// VALIDACION E INSERCION DE DEPENDENCIAS SELECCIONADAS VISIBLES
+        $rut_bodeg = str_replace('/',
+                                  $tmp_obj->barra,$ruta_raiz) .
+                                  $tmp_obj->barra . "bodega" . 
+                                  $tmp_obj->barra.date('Y') .
+                                  $tmp_obj->barra . $record['DEPE_CODI'] .
+                                  $tmp_obj->barra . 'docs';
+				
+        $ok2 = !is_dir($rut_bodeg)? mkdir($rut_bodeg,0777,true) : true;
+
+				// Validacion e insercion de dependencias seleccionadas visibles
 				$ok3 = true;
 				if (is_array($_POST['Slc_dvis']))
 				{
@@ -97,13 +100,11 @@ if ($db) {
 					$rs_sec_dep_vis->Close();
 					unset($rs_sec_dep_vis);
 				}
-				if ($ok1 && $ok2 && $ok3)
-				{
+
+				if ($ok1 && $ok2 && $ok3) {
 					//$db->conn->CommitTrans();
 					$error = 6;
-				}
-				else
-				{
+				} else {
 					($ok1) ? (($ok2) ? $error=4 : $error=5) : $error=3;
 					//$db->conn->RollbackTrans();
 				}
@@ -121,23 +122,23 @@ if ($db) {
 				$record_ori = $depObj->dependenciaArr($_POST['id']);
 				//completamos el vector de datos recibidos
 				$record['DEPE_CODI'] = $_POST['txtIdDep'];
-				if ($_POST['Slc_destado'] == 0 && $record_ori['depe_estado'] == 1)
-				{
+				if ($_POST['Slc_destado'] == 0 && $record_ori['depe_estado'] == 1) {
 					//Iniciamos validaciones...
 					$ADODB_COUNTRECS = true;
 					$sql = "SELECT usua_codi from USUARIO where depe_codi=".$_POST['id']." AND usua_esta=1";
 					$rs_tmp = $db->conn->Execute($sql);
 					$oka = false; $okb = false;
-					if ($rs_tmp->RecordCount() == 0)
-					{	$oka = true;
+					if ($rs_tmp->RecordCount() == 0) {
+            $oka = true;
 						$sql = "SELECT radi_nume_radi from RADICADO where RADI_DEPE_ACTU=".$_POST['id'];
 						$rs_tmp = $db->conn->Execute($sql);
-						if ($rs_tmp->RecordCount() == 0)
-						{	$okb = true;
-				}	}	}
-				else
-				{
-					$oka = true; $okb = true;
+						if ($rs_tmp->RecordCount() == 0) {
+              $okb = true;
+				    }
+          }	
+        } else {
+					$oka = true;
+          $okb = true;
 				}
 				$ADODB_COUNTRECS=false;
 				//Validacion c.
