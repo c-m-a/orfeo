@@ -3,14 +3,14 @@ session_start();
 $ruta_raiz = "../..";
 if($_SESSION['usua_admin_sistema'] !=1 ) die(include "$ruta_raiz/errorAcceso.php");
 
-include("$ruta_raiz/config.php"); 	// incluir configuracion.
-include($ADODB_PATH.'/adodb.inc.php');	// $ADODB_PATH configurada en config.php
+include('../../config.php'); 	// incluir configuracion.
+include_once ('../../include/db/ConnectionHandler.php');
+
 $ADODB_FETCH_MODE = ADODB_FETCH_NUM;
 $ADODB_COUNTRECS = false;
 
 $error = 0;
-$dsn = $driver."://".$usuario.":".$contrasena."@".$servidor."/".$db;
-$conn = NewADOConnection($dsn);
+$db = new ConnectionHandler($ruta_raiz);
 
 function valueToJsValue($value, $encoding = false)
 {	if (!is_numeric($value)) 
@@ -56,8 +56,8 @@ function arrayToJsArray( $array, $name, $nl = "\n", $encoding = false )
 	{	return false;	}
 }
 
-if ($conn)
-{	$conn->SetFetchMode(ADODB_FETCH_ASSOC);
+if ($db->conn)
+{	$db->conn->SetFetchMode(ADODB_FETCH_ASSOC);
 
 	if (isset($_POST['btn_accion']))
 	{	$record = array();
@@ -67,24 +67,24 @@ if ($conn)
 		$record['DPTO_NOMB'] = $_POST['txtModelo'];
 		switch($_POST['btn_accion'])
 		{	Case 'Agregar':
-			Case 'Modificar':{	$res = $conn->Replace('DEPARTAMENTO', $record, array('ID_CONT','ID_PAIS','DPTO_CODI'), $autoquote = true);
+			Case 'Modificar':{	$res = $db->conn->Replace('DEPARTAMENTO', $record, array('ID_CONT','ID_PAIS','DPTO_CODI'), $autoquote = true);
 								($res) ? ($res == 1 ? $error = 3 : $error = 4 ) : $error = 2;
 					 		 }break;
 			Case 'Eliminar':
 				{	$ADODB_COUNTRECS = true;
 					$sql = "SELECT * FROM SGD_DIR_DRECCIONES WHERE DPTO_CODI = ".$record['DPTO_CODI'];
-					$rs = $conn->Execute($sql);
+					$rs = $db->conn->Execute($sql);
 					$ADODB_COUNTRECS = false;
 					if ($rs->RecordCount() > 0)
 					{	$error = 5;	}
 					else 
-					{	$conn->BeginTrans();
-						$ok = $conn->Execute('DELETE FROM MUNICIPIO WHERE DPTO_CODI=?',$record['DPTO_CODI']);
+					{	$db->conn->BeginTrans();
+						$ok = $db->conn->Execute('DELETE FROM MUNICIPIO WHERE DPTO_CODI=?',$record['DPTO_CODI']);
 						if ($ok)
 						{	$record = array_slice($record, 0, 2);
-							$ok = $conn->Execute('DELETE FROM DEPARTAMENTO WHERE ID_PAIS=? AND DPTO_CODI=?',$record);
+							$ok = $db->conn->Execute('DELETE FROM DEPARTAMENTO WHERE ID_PAIS=? AND DPTO_CODI=?',$record);
 						}
-						($ok) ? $conn->CommitTrans() : $conn->RollbackTrans() ;
+						($ok) ? $db->conn->CommitTrans() : $db->conn->RollbackTrans() ;
 					}
 				}break;
 			Default: break;
@@ -93,13 +93,13 @@ if ($conn)
 	}
 	
 	$sql_cont = "SELECT NOMBRE_CONT,ID_CONT FROM SGD_DEF_CONTINENTES ORDER BY NOMBRE_CONT";
-	$Rs_cont = $conn->CacheExecute(86400,$sql_cont); 	//Query en cache por 24 horas.
+	$Rs_cont = $db->conn->CacheExecute(86400,$sql_cont); 	//Query en cache por 24 horas.
 	if (!($Rs_cont)) $error = 2;
 
 	$sql_pais = "SELECT ID_PAIS,NOMBRE_PAIS,ID_CONT FROM SGD_DEF_PAISES ORDER BY NOMBRE_PAIS";
-	$Rs_pais = $conn->Execute($sql_pais);
+	$Rs_pais = $db->conn->Execute($sql_pais);
 	if ($Rs_pais)
-	{	$vpaises = $conn->GetAssoc($sql_pais,$inputarr=false,$force_array=false,$first2cols=false);
+	{	$vpaises = $db->conn->GetAssoc($sql_pais,$inputarr=false,$force_array=false,$first2cols=false);
 		$vpaisesk = array_keys($vpaises);
 		$vpaisesv = array_values($vpaises);
 		$idx=0;
@@ -113,7 +113,7 @@ if ($conn)
 	
 	if ($_POST['idpais'] > 0)
 	{	$sql_dpto = "SELECT dpto_nomb,dpto_codi FROM DEPARTAMENTO WHERE ID_PAIS=".$_POST['idpais']." ORDER BY dpto_nomb";
-		$Rs_dpto = $conn->Execute($sql_dpto);
+		$Rs_dpto = $db->conn->Execute($sql_dpto);
 	}
 	
 	
