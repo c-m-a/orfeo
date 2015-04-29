@@ -1,145 +1,148 @@
 <html>
-  <head><title>.: Modulo total :.</title>
+  <head>
+    <title>.: Expedientes :.</title>
   <link rel="stylesheet" href="{$ORFEO_URL}estilos/orfeo.css">
   <script>
-  function regresar(){
-    window.location.reload();
-    window.close();
-  }
+    function regresar(){
+      window.location.reload();
+      window.close();
+    }
 
-  function verTipoExpediente(numeroExpediente,codserie,tsub,tdoc,opcionExp) {
-    window.open({$TIPIFICAR_EXPEDIENTE});
-  }
+    function verTipoExpediente(numeroExpediente,codserie,tsub,tdoc,opcionExp) {
+      window.open({$TIPIFICAR_EXPEDIENTE});
+    }
 
-  function verHistExpediente(numeroExpediente,codserie,tsub,tdoc,opcionExp) {
-    window.open({$HISTORICO_EXPEDIENTE});
-}
-  function crearProc(numeroExpediente){
-    window.open({$CREAR_PROCESO});
-  }
-  function seguridadExp(numeroExpediente,nivelExp){
-    window.open({$SEGURIDAD_EXPEDIENTE});
-  }
+    function verHistExpediente(numeroExpediente,codserie,tsub,tdoc,opcionExp) {
+      window.open({$HISTORICO_EXPEDIENTE});
+    }
+    
+    function crearProc(numeroExpediente){
+      window.open({$CREAR_PROCESO});
+    }
+    
+    function seguridadExp(numeroExpediente,nivelExp){
+      window.open({$SEGURIDAD_EXPEDIENTE});
+    }
+    
+    function verTipoExpedienteOld(numeroExpediente) {
+      window.open({$VER_TIPO_EXPEDIENTE});
+    }
+    
+    function modFlujo(numeroExpediente,texp,codigoFldExp) {
+      window.open({$MODIFICAR_FLUJO});
+    }
 
-  function verTipoExpedienteOld(numeroExpediente) {
-    window.open({$VER_TIPO_EXPEDIENTE});
-  }
-  
-  function modFlujo(numeroExpediente,texp,codigoFldExp) {
-    window.open({$MODIFICAR_FLUJO});
-  }
+    function Responsable(numeroExpediente) {
+      window.open({$ENLACE_RESPONSABLE});
+    }
 
-  function Responsable(numeroExpediente) {
-    window.open({$ENLACE_RESPONSABLE});
-  }
+    function CambiarE(est,numeroExpediente) {
+      window.open({$CAMBIAR_EXPEDIENTE});
+    }
 
-  function CambiarE(est,numeroExpediente) {
-    window.open({$CAMBIAR_EXPEDIENTE});
-  }
-
-  function insertarExpediente() {
-    window.open({$INSERT_EXPEDIENTE});
-  }
-  
-  function crearExpediente() {
-    numExpediente = document.getElementById('num_expediente').value;
-    numExpedienteDep = document.getElementById('num_expediente').value.substr(4,3);
-	  if(numExpedienteDep==<?=$dependencia?>) {
-      if(numExpediente.length==13) {
-        insertarExpedienteVal = true;
-      }else {
-        alert("Error. El numero de digitos debe ser de 13.");
+    function insertarExpediente() {
+      window.open({$INSERT_EXPEDIENTE});
+    }
+    
+    function crearExpediente() {
+      numExpediente = document.getElementById('num_expediente').value;
+      numExpedienteDep = document.getElementById('num_expediente').value.substr(4,3);
+      if(numExpedienteDep==<?=$dependencia?>) {
+        if(numExpediente.length==13) {
+          insertarExpedienteVal = true;
+        }else {
+          alert("Error. El numero de digitos debe ser de 13.");
+          insertarExpedienteVal = false;
+        }
+      } else {
+        alert("Error. Para crear un expediente solo lo podra realizar con el codigo de su dependencia. ");
         insertarExpedienteVal = false;
       }
-	  } else {
-		  alert("Error. Para crear un expediente solo lo podra realizar con el codigo de su dependencia. ");
-		  insertarExpedienteVal = false;
-	  }
 
-	  if(insertarExpedienteVal == true) {
-		  respuesta = confirm("Esta apunto de crear el EXPEDIENTE No. " + numExpediente + " Esta Seguro ? ");
-		  insertarExpedienteVal = respuesta;
-		
       if(insertarExpedienteVal == true) {
-			  dv = digitoControl(numExpediente);
-			  document.getElementById('num_expediente').value = document.getElementById('num_expediente').value + "E" + dv;
-			  document.getElementById('funExpediente').value = "CREAR_EXP"
-			  document.form2.submit();
-		  }
-	  }
-  }
-</script>
-
-<script language="javascript">
-  var varOrden = 'ASC';
-  function ordenarPor( campo ) {
-    if ( document.getElementById('orden').value == 'ASC' ) {
-      varOrden = 'DESC';
-    } else {
-      varOrden = 'ASC';   
-    }
-    document.getElementById('orden').value = varOrden;
-    document.getElementById('ordenarPor').value = campo + ' ' + varOrden;
-    document.form2.submit();
-  }
-
-  var i = 1;
-  var numRadicado;
-  
-  function cambiarImagen(imagen) {
-    numRadicado = imagen.substr( 13 );
-    if ( i == 1 ) {
-      document.getElementById( 'anexosRadicado' ).value = numRadicado;
-      i = 2;
-    } else {
-      document.getElementById( 'anexosRadicado' ).value = "";
-      i = 1;
-    }
-
-    document.form2.submit();
-  }
-
-  function excluirExpediente() {
-    window.open({$EXCLUIR_EXPEDIENTE});
-  }
-
-  // Incluir Anexos y Asociados a un Expediente.
-  function incluirDocumentosExp() {
-    var strRadSeleccionados = "";
-    frm = document.form2;
-    if( typeof frm.check_uno.length != "undefined" ) {
-        for( i = 0; i < frm.check_uno.length; i++ ) {
-            if( frm.check_uno[i].checked ) {
-                if( strRadSeleccionados == "" ) {
-                    coma = "";
-                }
-                else {
-                    coma = ",";
-                }
-                strRadSeleccionados += coma + frm.check_uno[i].value;
-            }
+        respuesta = confirm("Esta apunto de crear el EXPEDIENTE No. " + numExpediente + " Esta Seguro ? ");
+        insertarExpedienteVal = respuesta;
+      
+        if(insertarExpedienteVal == true) {
+          dv = digitoControl(numExpediente);
+          document.getElementById('num_expediente').value = document.getElementById('num_expediente').value + "E" + dv;
+          document.getElementById('funExpediente').value = "CREAR_EXP"
+          document.form2.submit();
         }
-    } else {
-        if( frm.check_uno.checked ) {
-            strRadSeleccionados = frm.check_uno.value;
-        }
+      }
+    }
+  </script>
+
+  <script language="javascript">
+    var varOrden = 'ASC';
+    
+    function ordenarPor( campo ) {
+      if ( document.getElementById('orden').value == 'ASC' ) {
+        varOrden = 'DESC';
+      } else {
+        varOrden = 'ASC';   
+      }
+      document.getElementById('orden').value = varOrden;
+      document.getElementById('ordenarPor').value = campo + ' ' + varOrden;
+      document.form2.submit();
     }
 
-    if (strRadSeleccionados != "" ) {
-      window.open({$INCLUIR_DOCS});
-    } else {
-      alert( "Error. Debe seleccionar por lo menos un \n\r documento a incluir en el expediente." );
-      return false;
+    var i = 1;
+    var numRadicado;
+    
+    function cambiarImagen(imagen) {
+      numRadicado = imagen.substr( 13 );
+      if ( i == 1 ) {
+        document.getElementById( 'anexosRadicado' ).value = numRadicado;
+        i = 2;
+      } else {
+        document.getElementById( 'anexosRadicado' ).value = "";
+        i = 1;
+      }
+
+      document.form2.submit();
     }
-  }
 
-  // Crear Subexpediente
-  function incluirSubexpediente( numeroExpediente, numeroRadicado ) {
-    window.open({$INCLUIR_SUBEXP});
-  }
+    function excluirExpediente() {
+      window.open({$EXCLUIR_EXPEDIENTE});
+    }
 
-</script>
-<script language="JavaScript" src="./js/funciones.js"></script>
+    // Incluir Anexos y Asociados a un Expediente.
+    function incluirDocumentosExp() {
+      var strRadSeleccionados = "";
+      frm = document.form2;
+      if( typeof frm.check_uno.length != "undefined" ) {
+          for( i = 0; i < frm.check_uno.length; i++ ) {
+              if( frm.check_uno[i].checked ) {
+                  if( strRadSeleccionados == "" ) {
+                      coma = "";
+                  }
+                  else {
+                      coma = ",";
+                  }
+                  strRadSeleccionados += coma + frm.check_uno[i].value;
+              }
+          }
+      } else {
+          if( frm.check_uno.checked ) {
+              strRadSeleccionados = frm.check_uno.value;
+          }
+      }
+
+      if (strRadSeleccionados != "" ) {
+        window.open({$INCLUIR_DOCS});
+      } else {
+        alert( "Error. Debe seleccionar por lo menos un \n\r documento a incluir en el expediente." );
+        return false;
+      }
+    }
+
+    // Crear Subexpediente
+    function incluirSubexpediente( numeroExpediente, numeroRadicado ) {
+      window.open({$INCLUIR_SUBEXP});
+    }
+
+  </script>
 </head>
 <body bgcolor="#FFFFFF" topmargin="0">
   <input type="hidden" name="ordenarPor" id="ordenarPor" value="">
@@ -175,7 +178,7 @@
   {if $MOSTRAR_DOCS}
   <input type="hidden" name="menu_ver_tmp" value="4">
   <input type="hidden" name="menu_ver" value="4">
-  <table  cellspacing="5" width=98% align="center" class="borde_tab">
+  <table  cellspacing="5" width="98%" align="center" class="borde_tab">
     <tr>
       <td class="titulos5">
         <span class="leidos"> DOCUMENTO {$NOMBRE_DERI} <b>{$RADI_NUME_DERI}</b></span>
@@ -197,7 +200,7 @@
       <span class="leidos2">Asunto:{$raAsunAnexo}</span>
     </td>
     <td class="listado5">
-      <span class="leidos2">Ref:<?=$cuentaIAnexo}</span>
+      <span class="leidos2">Ref:{$cuentaIAnexo}</span>
     </td>
   </tr>
   <!-- //foreach -->
@@ -247,12 +250,12 @@
 	if ( $num_expediente != "" && !isset( $expIncluido ) ) {
     ?>
     Nombre de Expediente
-    <input name="num_expediente" type="text" size="30" maxlength="18" id='num_expediente' value="<?=$num_expediente?>" class="tex_area" '<?=$datoss?>'>
+    <input name="num_expediente" type="text" size="30" maxlength="18" id="num_expediente" value="{$NUM_EXPEDIENTE}" class="tex_area" "{$DATOSS}">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Responsable: &nbsp;&nbsp;&nbsp;<b><span class=leidos2>
-    <? echo $responsable;?></b> &nbsp;&nbsp;&nbsp;
+    {$RESPONSABLE}</b> &nbsp;&nbsp;&nbsp;
 	<?
 		if($krdperm==2){
-			echo "<input type=\"button\" value=\"Cambiar\" class=\"botones_3\" onClick=\"Responsable('$num_expediente')\">";
+			echo "<input type=\"button\" value=\"Cambiar\" class=\"botones_3\" onClick=\"Responsable('$NUM_EXPEDIENTE')\">";
 			if ($arch!=2 && $mostar){
 			?>
 			<input type="button" class="botones_mediano2" value="Cerrar Expediente" onClick=" CambiarE(2,'<?=$num_expediente?>') ">
@@ -265,16 +268,10 @@
 		}
 		}
 	}
-	// Modificado Infom�trika 23-Julio-2009
-	// Ajuste para adaptarse al cambio de m�todo (de POST a GET) en el script verradicado.php
-	//else if ( isset( $_POST['expIncluido'][0] ) && $_POST['expIncluido'][0] != "" ) {
 	else if ( isset( $expIncluido ) && $expIncluido != "" ) {
     ?>
     Nombre de Expediente
     <?php
-    // Modificado Infom�trika 23-Julio-2009
-    // Ajuste para adaptarse al cambio de m�todo (de POST a GET) en el script verradicado.php
-    // Cambi� $_POST['expIncluido'][0] por $expIncluido
     ?>
     <input name="num_expediente" type="text" size="30" maxlength="18" id='num_expediente' value="<? print $expIncluido; ?>" class="tex_area" '<?=$datoss?>'>
 

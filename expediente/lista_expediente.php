@@ -44,7 +44,6 @@
 
   $smarty->assign('TIPIFICAR_EXPEDIENTE', $tipificar_expediente);
   
-  // ----------------
   $isqlDepR = "SELECT RADI_DEPE_ACTU,
                       RADI_USUA_ACTU
                   from radicado
@@ -413,6 +412,10 @@
 	elseif (isset($expIncluido) && $expIncluido != "")
 		$numExpediente = $expIncluido;
 
+  $smarty->assign('NUM_EXPEDIENTE', $numExpediente);
+  $smarty->assign('DATOSS',         $datoss);
+  $smarty->assign('RESPONSABLE',    $responsable);
+
 	$expediente->expedienteArchivado( $verrad, $numExpediente );
 
 	// Si el radicado no ha sido excluido del expediente
@@ -444,14 +447,15 @@
   $rsDepR   = $db->conn->Execute($isqlDepR);
 	$nivelExp = $rsDepR->fields['SGD_EXP_PRIVADO'];
 	$docRes   = $rsDepR->fields['USUA_DOC_RESPONSABLE'];
-	$isqlDepR = "SELECT USUA_NOMB
-                from USUARIO
+	
+  $isqlDepR = "SELECT USUA_NOMB
+                FROM USUARIO
                 WHERE USUA_DOC = '$docRes'";
 	
   $rsDepR   = $db->conn->Execute($isqlDepR);
 	$responsable = $rsDepR->fields['USUA_NOMB'];
 	$isql     = "SELECT USUA_PERM_EXPEDIENTE
-                from USUARIO
+                FROM USUARIO
                 WHERE USUA_LOGIN = '$krd'";
 	
   $rs       = $db->conn->Execute($isql);
