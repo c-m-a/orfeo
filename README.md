@@ -4,9 +4,9 @@ Bienvenido a la documentaci&oacute;n de Orfeo Plus Versi&oacute;n 4.0. Esta vers
 
 La segunda parte que queremos ofrecer es un codigo mas libre de errores y de facil instalacion, con lo cual se pretende mejorar los tiempos de pre y pos instalacion y soporte, por lo tanto el codigo fuente se encuentra en constante modificacion.
 
-Orfeo Plus Ver. 4.0 es una version plenamente mantenidad por la comunidad de desarrolladores que desean participar y mejorar el codigo fuente de la aplicacion. Esta version fue tomada apartir de la version de Orfeo 3.8.2 del repositorio central de la fundacion Corre Libre y se realizo varias modificaciones claves a los archivos que mas se usan, por lo tanto cualquier ajuste que tenga versiones anteriores a Orfeo+ tendran que ser reescritas para mayor compatibilidad esta version.
+Orfeo Plus Ver. 4.0 es una version plenamente mantenidad por la comunidad de desarrolladores que desean participar y mejorar el codigo fuente de la aplicacion. Esta version fue tomada apartir de la version de Orfeo 3.8.2 del repositorio central de la fundacion Corre Libre y se realizo varias modificaciones claves a los archivos que mas se usan, por lo tanto cualquier ajuste que tenga versiones anteriores u otras version aparte a Orfeo+ tendran que ser reescritas para mayor compatibilidad esta version.
 
-Este software se entrega sin ninguna garantia de errores en el codigo fuente, ademas esta version no se encuentra soportada por la fundacion "Corre Libre" por lo tanto cualquier reporte o inconveniente debe ser realizado al grupo de desarrolladores responsables del proyecto.
+Este software se entrega sin ninguna garantia de errores en el codigo fuente, bajo licencia GPL Ver. 3, ademas esta version no se encuentra soportada por la fundacion "Corre Libre" por lo tanto cualquier reporte o inconveniente debe ser realizado al grupo de desarrolladores responsables del proyecto.
 
 ## Tabla de contenido
 
@@ -16,9 +16,7 @@ Este software se entrega sin ninguna garantia de errores en el codigo fuente, ad
 * [Archivo de configuracion](#views-and-templates)
 * [Reglas de Codificacion](#views-and-templates)
 * [Soporte y Licencia](#databases)
-* [Quick Reference](#quick-reference)
-* [Support and Licensing](#support-and-licensing)
 
-### Version 4.0 Is Finalmente Liberada!
+### Version 4.0 Es Finalmente Liberada!
 
 # Continuara :)
