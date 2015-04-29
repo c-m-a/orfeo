@@ -11,7 +11,9 @@ session_start();
 * @licencia GNU/GPL V 3
   */
 
-# Variables de la session de Orfeo
+if($_SESSION['usua_admin_sistema'] !=1 )
+  die(include "$ruta_raiz/errorAcceso.php");
+
 $krd = $_SESSION["krd"];
 $dependencia = $_SESSION["dependencia"];
 $usua_doc = $_SESSION["usua_doc"];
@@ -20,11 +22,10 @@ $tip3Nombre=$_SESSION["tip3Nombre"];
 $tip3desc = $_SESSION["tip3desc"];
 $tip3img =$_SESSION["tip3img"];
 
-
 $ruta_raiz = "../..";
-if($_SESSION['usua_admin_sistema'] !=1 ) die(include "$ruta_raiz/errorAcceso.php");
-include("$ruta_raiz/config.php"); 		// incluir configuracion.
-include($ADODB_PATH.'/adodb.inc.php');
+
+include('../../config.php'); 		// incluir configuracion.
+include_once ('../../include/db/ConnectionHandler.php');
 $ADODB_FETCH_MODE = ADODB_FETCH_NUM;
 $ADODB_COUNTRECS = false;
 
@@ -32,8 +33,8 @@ foreach ($_GET as $key => $valor)   ${$key} = $valor;
 foreach ($_POST as $key => $valor)   ${$key} = $valor;
 
 $error = 0;
-$dsn = $driver."://".$usuario.":".$contrasena."@".$servidor."/".$db;
-$conn = NewADOConnection($dsn);
+$db = new ConnectionHandler($ruta_raiz);
+
 function valueToJsValue($value, $encoding = false)
 {	if (!is_numeric($value))
 	{	$value = str_replace('\\', '\\\\', $value);
@@ -78,8 +79,8 @@ function arrayToJsArray( $array, $name, $nl = "\n", $encoding = false )
 	{	return false;	}
 }
 
-if ($conn)
-{	$conn->SetFetchMode(ADODB_FETCH_ASSOC);
+if ($db)
+{	$db->conn->SetFetchMode(ADODB_FETCH_ASSOC);
 
 	if (isset($_POST['btn_accion']))
 	{	$record = array();
@@ -92,8 +93,8 @@ if ($conn)
 		switch($_POST['btn_accion'])
 		{	Case 'Agregar':
 			Case 'Modificar':
-			{	$conn->BeginTrans();
-				$ok = $conn->Replace('SGD_CLTA_CLSTARIF',$record,array('SGD_FENV_CODIGO','SGD_TAR_CODIGO','SGD_CLTA_CODSER'),$autoquote = true);
+			{	$db->conn->BeginTrans();
+				$ok = $db->conn->Replace('SGD_CLTA_CLSTARIF',$record,array('SGD_FENV_CODIGO','SGD_TAR_CODIGO','SGD_CLTA_CODSER'),$autoquote = true);
 				if ($ok)
 				{	$record = array_slice($record,0,3,true);
 					if ($_POST['slc_TipoTar']==1)
@@ -108,40 +109,40 @@ if ($conn)
 						$record['SGD_TAR_VALENV1G1'] = $_POST['txt_v1'];	//valor envio (grupo1)
 						$record['SGD_TAR_VALENV2G2'] = $_POST['txt_v2'];	//valor envio (grupo2)
 					}
-					$ok = $conn->Replace('SGD_TAR_TARIFAS',$record,array('SGD_FENV_CODIGO','SGD_TAR_CODIGO','SGD_CLTA_CODSER'),$autoquote = true);
+					$ok = $db->conn->Replace('SGD_TAR_TARIFAS',$record,array('SGD_FENV_CODIGO','SGD_TAR_CODIGO','SGD_CLTA_CODSER'),$autoquote = true);
 				}
 				if ($ok)
-				{	$conn->CommitTrans();
+				{	$db->conn->CommitTrans();
 					$error = $ok;
 				}
 				else
-				{	$conn->RollbackTrans();
+				{	$db->conn->RollbackTrans();
 					$error = 3;
 				}
 			}break;
 			Case 'Eliminar':
 			{	$record = array_slice($record, 0, 3);
-				$conn->BeginTrans();
-				$conn->debug=true;
+				$db->conn->BeginTrans();
+				$db->conn->debug=true;
 				$ADODB_COUNTRECS = true;
 				$query = "SELECT sgd_renv_codigo from sgd_renv_regenvio where sgd_fenv_codigo = (";
 				$query.= 'SELECT SGD_FENV_CODIGO FROM SGD_CLTA_CLSTARIF WHERE SGD_FENV_CODIGO='.$record['SGD_FENV_CODIGO'].' AND SGD_TAR_CODIGO='.$record['SGD_TAR_CODIGO'].' AND SGD_CLTA_CODSER='.$record['SGD_CLTA_CODSER'].')';
-				$rs = $conn->Execute($query);
+				$rs = $db->conn->Execute($query);
 				$ADODB_COUNTRECS = false;
 				if ($rs->RecordCount() <= 0)
 				{ 
-					$ok1 = $conn->Execute('DELETE FROM SGD_TAR_TARIFAS WHERE SGD_FENV_CODIGO='.$record['SGD_FENV_CODIGO'].' AND SGD_TAR_CODIGO='.$record['SGD_TAR_CODIGO'].' AND SGD_CLTA_CODSER='.$record['SGD_CLTA_CODSER']);
-					$ok2 = $conn->Execute('DELETE FROM SGD_CLTA_CLSTARIF WHERE SGD_FENV_CODIGO='.$record['SGD_FENV_CODIGO'].' AND SGD_TAR_CODIGO='.$record['SGD_TAR_CODIGO'].' AND SGD_CLTA_CODSER='.$record['SGD_CLTA_CODSER']);
+					$ok1 = $db->conn->Execute('DELETE FROM SGD_TAR_TARIFAS WHERE SGD_FENV_CODIGO='.$record['SGD_FENV_CODIGO'].' AND SGD_TAR_CODIGO='.$record['SGD_TAR_CODIGO'].' AND SGD_CLTA_CODSER='.$record['SGD_CLTA_CODSER']);
+					$ok2 = $db->conn->Execute('DELETE FROM SGD_CLTA_CLSTARIF WHERE SGD_FENV_CODIGO='.$record['SGD_FENV_CODIGO'].' AND SGD_TAR_CODIGO='.$record['SGD_TAR_CODIGO'].' AND SGD_CLTA_CODSER='.$record['SGD_CLTA_CODSER']);
 					if ($ok1 && $ok2)
-					{	$conn->CommitTrans();
+					{	$db->conn->CommitTrans();
 						$error = 4;
 					}
 					else
-					{	$conn->RollbackTrans();
+					{	$db->conn->RollbackTrans();
 						$error = 3;
 				}	}
 				else
-				{	$conn->RollbackTrans();
+				{	$db->conn->RollbackTrans();
 					$error = 5;
 				}
 			}break;
@@ -151,7 +152,7 @@ if ($conn)
 	}
 
 	$sql_fenv = "SELECT SGD_FENV_DESCRIP, SGD_FENV_CODIGO FROM SGD_FENV_FRMENVIO WHERE SGD_FENV_ESTADO=1 ORDER BY SGD_FENV_DESCRIP";
-	$Rs_fenv = $conn->CacheExecute(86400,$sql_fenv); 	//Query en cache por 24 horas.
+	$Rs_fenv = $db->conn->CacheExecute(86400,$sql_fenv); 	//Query en cache por 24 horas.
 	if (!($Rs_fenv)) {	$error = 3;	$nomTabla = "Formas de Envio";	}
 
 
@@ -169,7 +170,7 @@ if ($conn)
 					"SGD_CLTA_CLSTARIF.SGD_CLTA_CODSER = SGD_TAR_TARIFAS.SGD_CLTA_CODSER AND ".
 					"SGD_CLTA_CLSTARIF.SGD_FENV_CODIGO = ".$_POST['id_fenv']." AND SGD_CLTA_CLSTARIF.SGD_CLTA_CODSER = ".$_POST['slc_TipoTar'].
 					"ORDER BY SGD_CLTA_CLSTARIF.SGD_CLTA_DESCRIP, SGD_CLTA_CLSTARIF.SGD_FENV_CODIGO";
-		$Rs_clta = $conn->Execute($sql_clta);
+		$Rs_clta = $db->conn->Execute($sql_clta);
 		if ($Rs_clta)
 		{	$it = 1;
 			$vcltav = array();
@@ -184,7 +185,7 @@ if ($conn)
 				$Rs_clta->MoveNext();
 			}
 			//$Rs_clta->Move(0);
-			$Rs_clta = $conn->Execute($sql_clta);
+			$Rs_clta = $db->conn->Execute($sql_clta);
 		}
 		else
 		{	$error = 3;	$nomTabla = "Clasificacin de tarifas";	}
@@ -361,7 +362,7 @@ function anula_datos()
 	    <td align="left" class="titulos2">Seleccione Tarifa </td>
 	    <td colspan="4" class="listado2">
 <?		// Listamos las tarifas.
-		$Rs_clta = $conn->Execute($sql_clta);
+		$Rs_clta = $db->conn->Execute($sql_clta);
 		if ($_POST['slc_TipoTar'] > 0)
 		{	
 			echo $Rs_clta->GetMenu2('id_clta',false,"0:&lt;&lt; SELECCIONE &gt;&gt;",false,0," id=\"id_clta\" onchange=\"Actualiza()\" class='select'");
