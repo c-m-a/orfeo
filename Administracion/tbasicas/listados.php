@@ -1,4 +1,4 @@
-<?
+<?php
 /*  Visualizador de Listados.
 *	Creado por: Ing. Hollman Ladino Paredes.
 *	Para el proyecto ORFEO.
@@ -8,24 +8,25 @@
 */
 
 
-$ruta_raiz="../..";
-include("$ruta_raiz/config.php"); 		// incluir configuracion.
-include($ADODB_PATH.'/adodb.inc.php');
-include($ADODB_PATH.'/tohtml.inc.php');
+$ruta_raiz = '../..';
+include ('../../config.php'); 		// incluir configuracion.
+include_once ('../../include/db/ConnectionHandler.php');
+
 $ADODB_FETCH_MODE = ADODB_FETCH_NUM;
 $ADODB_COUNTRECS = false;
 
+$db = new ConnectionHandler($ruta_raiz);
 $error = 0;
-$dsn = $driver."://".$usuario.":".$contrasena."@".$servidor."/".$db;
-$conn = NewADOConnection($dsn);
-//$conn->debug=1;
 
-switch ($_GET['var'])
-{	case 'tar'	:
+$tipo_salida = (isset($_GET['var']))?
+                  $_GET['var'] : null;
+
+switch ($tipo_salida) {
+  case 'tar'	:
 		{	$titulo = "LISTADO GENERAL DE TARIFAS";
 			$tit_columnas = array('Forma Envio','Nal / InterNal.','C&oacute;d. Tarifa','Desc. Tarifa','Valor Local/America','Valor Nal./Resto');
-			$valor1 = $conn->IfNull('SGD_TAR_TARIFAS.SGD_TAR_VALENV1', 'SGD_TAR_TARIFAS.SGD_TAR_VALENV1G1');
-			$valor2 = $conn->IfNull('SGD_TAR_TARIFAS.SGD_TAR_VALENV2', 'SGD_TAR_TARIFAS.SGD_TAR_VALENV2G2');
+			$valor1 = $db->conn->IfNull('SGD_TAR_TARIFAS.SGD_TAR_VALENV1', 'SGD_TAR_TARIFAS.SGD_TAR_VALENV1G1');
+			$valor2 = $db->conn->IfNull('SGD_TAR_TARIFAS.SGD_TAR_VALENV2', 'SGD_TAR_TARIFAS.SGD_TAR_VALENV2G2');
 			$isql =	"SELECT SGD_FENV_FRMENVIO.SGD_FENV_DESCRIP, SGD_CLTA_CLSTARIF.SGD_CLTA_CODSER, SGD_CLTA_CLSTARIF.SGD_TAR_CODIGO, SGD_CLTA_CLSTARIF.SGD_CLTA_DESCRIP, 
                       $valor1 AS VALOR1, $valor2 AS VALOR2 
 					FROM SGD_CLTA_CLSTARIF, SGD_TAR_TARIFAS, SGD_FENV_FRMENVIO 
@@ -147,7 +148,7 @@ switch ($_GET['var'])
 }
 
 //$conn->debug=true;
-$Rs_clta = $conn->Execute($isql); 
+$Rs_clta = $db->conn->Execute($isql); 
 
 ?>
 <html>
@@ -157,7 +158,7 @@ $Rs_clta = $conn->Execute($isql);
 </head>
 <body>
 <?
-switch ($_GET['var'])
+switch ($tipo_salida)
 {	case 'tar'	:
 	case 'pai'	:
 	case 'tpr'	:
@@ -173,7 +174,12 @@ switch ($_GET['var'])
 	case 'sts'	:
 	case 'dpc'	:	
 		{
-			$html = rs2html($Rs_clta,'border=1 cellpadding=0 align=center',$tit_columnas,true,false);
+      $styles = 'border=1 cellpadding=0 align=center';
+			$html = rs2html($Rs_clta,
+                        $styles,
+                        $tit_columnas,
+                        true,
+                        false);
 			$pos1 = strpos($html,"</TABLE>\n\n");
 			$cnt_tmp = substr_count($html,"</TH>\n</tr>");
 			if($cnt_tmp > 1)
@@ -187,7 +193,6 @@ switch ($_GET['var'])
 		}break;
 	default		: 
 		{			
-			include($ADODB_PATH.'/adodb-pager.inc.php');
 			$pager = new ADODB_Pager($conn,$isql);
 			$pager->Render($rows_per_page=20);
 			break;
