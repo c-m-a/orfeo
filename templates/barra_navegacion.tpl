@@ -23,7 +23,7 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">M&oacute;dulos<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Administraci&oacute;n</a></li>
+                <li><a href="./Administracion/">Administraci&oacute;n</a></li>
                 <li><a href="#">Reasignaci&oacute;n Autom&aacute;tica</a></li>
                 <li><a href="#">Modulo Cooperativas</a></li>
                 <li><a href="#">Editor Flujos</a></li>
