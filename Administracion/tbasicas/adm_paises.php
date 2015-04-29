@@ -1,70 +1,82 @@
-<?
-/*  Administrador de Paises.
-*	Creado por: Ing. Hollman Ladino Paredes.
-*	Para el proyecto ORFEO.
-*
-*	Permite la administracion de paises. La insercion y modificacion hace uso de la funcion
-*	Replace de ADODB, la eliminacion esta sujeta a que este NUNCA haya sido referenciado en radicados.
-*/
-session_start();
-$ruta_raiz = "../..";
-if($_SESSION['usua_admin_sistema'] !=1 ) die(include "$ruta_raiz/errorAcceso.php");
-include("$ruta_raiz/config.php"); 			// incluir configuracion.
-include($ADODB_PATH.'/adodb.inc.php');	// $ADODB_PATH configurada en config.php
-$error = 0;
-$dsn = $driver."://".$usuario.":".$contrasena."@".$servidor."/".$db;
-$conn = NewADOConnection($dsn);
-if ($conn)
-{	$conn->SetFetchMode(ADODB_FETCH_ASSOC);
+<?php
+  /*  Administrador de Paises.
+  *	Permite la administracion de paises. La insercion y modificacion hace uso de la funcion
+  *	Replace de ADODB, la eliminacion esta sujeta a que este NUNCA haya sido referenciado en radicados.
+  */
+  session_start();
+  $ruta_raiz = "../..";
 
-	if (isset($_POST['btn_accion']))
-	{	$record = array();
-		$record['ID_PAIS'] = $_POST['txtIdPais'];
-		$record['ID_CONT'] = $_POST['idcont'];
-		$record['NOMBRE_PAIS'] = $_POST['txtModelo'];
-		switch($_POST['btn_accion'])
-		{	Case 'Agregar':
-			Case 'Modificar':{	$res = $conn->Replace('SGD_DEF_PAISES',$record,array('ID_PAIS','ID_CONT'),$autoquote = true);
-								($res) ? ($res == 1 ? $error = 3 : $error = 4 ) : $error = 2;
-					 		 }break;
-			Case 'Eliminar':
-				{	$ADODB_COUNTRECS = true;
-					$sql = "SELECT * FROM SGD_DIR_DRECCIONES WHERE ID_PAIS = ".$record['ID_PAIS'];
-					$rs = $conn->Execute($sql);
-					$ADODB_COUNTRECS = false;
-					if ($rs->RecordCount() > 0)
-					{	$error = 5;	}
-					else 
-					{	$conn->BeginTrans();
-						$ok = $conn->Execute('DELETE FROM MUNICIPIO WHERE ID_PAIS=?',$record['ID_PAIS']);
-						if ($ok)
-						{	$ok = $conn->Execute('DELETE FROM DEPARTAMENTO WHERE ID_PAIS=?',$record['ID_PAIS']);
-							if ($ok)
-							{	$record = array_slice($record, 0, 2);
-								$ok = $conn->Execute('DELETE FROM SGD_DEF_PAISES WHERE ID_PAIS=? AND ID_CONT=?',$record);
-							}
-						}
-						($ok) ? $conn->CommitTrans() : $conn->RollbackTrans() ;
-					}
-				}break;
-			Default: break;
-		}
-		unset($record);
-	}
-	
-	$sql_cont = "SELECT nombre_cont,ID_CONT FROM SGD_DEF_CONTINENTES ORDER BY nombre_cont";
-	$Rs_cont = $conn->CacheExecute(86400,$sql_cont); 	//Query en cache por 24 horas.
-	if (!($Rs_cont)) $error = 2;
+  if($_SESSION['usua_admin_sistema'] !=1 )
+    die(include "$ruta_raiz/errorAcceso.php");
 
-	if (isset($_POST['idcont']) and $_POST['idcont'] >0)
-	{	$sql_pais = "SELECT NOMBRE_PAIS,ID_PAIS FROM SGD_DEF_PAISES WHERE ID_CONT=".$_POST['idcont']." ORDER BY NOMBRE_PAIS";
-		$Rs_pais = $conn->Execute($sql_pais);
-		if (!($Rs_pais)) $error = 2;
-	}
-}
-else
-{	$error = 1;
-}
+  include ('../../config.php'); 			// incluir configuracion.
+  include ('../../include/db/ConnectionHandler.php');
+
+  $error = 0;
+  $db = new ConnectionHandler($ruta_raiz);
+
+  if ($db) {
+    $db->conn->SetFetchMode(ADODB_FETCH_ASSOC);
+
+    if (isset($_POST['btn_accion']))
+    {	$record = array();
+      $record['ID_PAIS'] = $_POST['txtIdPais'];
+      $record['ID_CONT'] = $_POST['idcont'];
+      $record['NOMBRE_PAIS'] = $_POST['txtModelo'];
+      switch($_POST['btn_accion'])
+      {	Case 'Agregar':
+        Case 'Modificar':{
+          $res = $db->conn->Replace('SGD_DEF_PAISES',$record,array('ID_PAIS','ID_CONT'),$autoquote = true);
+                  ($res) ? ($res == 1 ? $error = 3 : $error = 4 ) : $error = 2;
+                 }break;
+        Case 'Eliminar':
+          {	$ADODB_COUNTRECS = true;
+            $sql = "SELECT * FROM SGD_DIR_DRECCIONES WHERE ID_PAIS = ".$record['ID_PAIS'];
+            $rs = $db->conn->Execute($sql);
+            $ADODB_COUNTRECS = false;
+            if ($rs->RecordCount() > 0)
+            {	$error = 5;	}
+            else 
+            {	$db->conn->BeginTrans();
+              $ok = $db->conn->Execute('DELETE FROM MUNICIPIO WHERE ID_PAIS=?',$record['ID_PAIS']);
+              if ($ok)
+              {	$ok = $db->conn->Execute('DELETE FROM DEPARTAMENTO WHERE ID_PAIS=?',$record['ID_PAIS']);
+                if ($ok)
+                {	$record = array_slice($record, 0, 2);
+                  $ok = $db->conn->Execute('DELETE FROM SGD_DEF_PAISES WHERE ID_PAIS=? AND ID_CONT=?',$record);
+                }
+              }
+              ($ok) ? $db->conn->CommitTrans() : $conn->RollbackTrans() ;
+            }
+          }break;
+        Default: break;
+      }
+      unset($record);
+    }
+    
+    $sql_cont = "SELECT NOMBRE_CONT,
+                        ID_CONT
+                  FROM  SGD_DEF_CONTINENTES
+                  ORDER BY NOMBRE_CONT";
+    
+    $Rs_cont = $db->conn->Execute($sql_cont);
+    
+    if (!($Rs_cont))
+      $error = 2;
+
+    if (isset($_POST['idcont']) and $_POST['idcont'] >0) {
+      $sql_pais = "SELECT NOMBRE_PAIS,
+                          ID_PAIS
+                    FROM  SGD_DEF_PAISES
+                    WHERE ID_CONT=" . $_POST['idcont'] .
+                    " ORDER BY NOMBRE_PAIS";
+      $Rs_pais = $db->conn->Execute($sql_pais);
+      if (!($Rs_pais)) $error = 2;
+    }
+  }
+  else
+  {	$error = 1;
+  }
 ?>
 <html>
 <head>
@@ -106,7 +118,12 @@ function ver_listado()
 	<td width="25%" align="left" class="titulos2"><b>&nbsp;Seleccione Continente</b></td>
 	<td width="72%" class="listado2">
 	<?	// Listamos los continentes.
-    	echo $Rs_cont->GetMenu2('idcont',$_POST['idcont'],"0:&lt;&lt;SELECCIONE&gt;&gt;",false,0,"class='select' onChange=\"this.form.submit()\"");
+    	echo $Rs_cont->GetMenu2('idcont',
+                              $_POST['idcont'],
+                              "0:&lt;&lt;SELECCIONE&gt;&gt;",
+                              false,
+                              0,
+                              "class='select' onChange=\"this.form.submit()\"");
 	    $Rs_cont->Close();
 	?>	</td>
 </tr>
