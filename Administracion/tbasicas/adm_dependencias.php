@@ -1,12 +1,22 @@
 <?php
 session_start();
 /**
-  * Se añadio compatibilidad con variables globales en Off
   * @autor Jairo Losada 2009-05
   * @Fundacion CorreLibre.org
   * @licencia GNU/GPL V 3
   */
-error_reporting(0);
+
+$ruta_raiz = "../..";
+include_once('../../config.php'); // incluir configuracion.
+
+if(!isset($_SESSION['dependencia']))
+  include "$ruta_raiz/rec_session.php";
+
+if ($_SESSION['usua_admin_sistema'] != 1)
+  die(include "../../sinacceso.php");
+
+include_once("../../include/db/ConnectionHandler.php");
+
 foreach ($_GET as $key => $valor)   ${$key} = $valor;
 foreach ($_POST as $key => $valor)   ${$key} = $valor;
 
@@ -20,16 +30,10 @@ $tip3img =$_SESSION["tip3img"];
 
 $ADODB_COUNTRECS = false;
 
-$ruta_raiz = "../..";
-include_once($ruta_raiz.'/config.php'); // incluir configuracion.
- if(!isset($_SESSION['dependencia']))	include "$ruta_raiz/rec_session.php";
-if ($_SESSION['usua_admin_sistema'] != 1) die(include "$ruta_raiz/sinacceso.php");
-include_once($ruta_raiz."/include/db/ConnectionHandler.php");
-
 $db = new ConnectionHandler("$ruta_raiz");
-//$db->conn->debug = true;
-if ($db)
-{	$db->conn->SetFetchMode(ADODB_FETCH_ASSOC);
+
+if ($db) {
+  $db->conn->SetFetchMode(ADODB_FETCH_ASSOC);
 	$error = 0;
 	include($ruta_raiz.'/include/class/tipoRadicado.class.php');
 	if (isset($_POST['btn_accion']))
@@ -70,7 +74,7 @@ if ($db)
 					 	$record['DEPE_RAD_TP'.$tmp1] = 'null';
 				}	}
 				$tabla = 'DEPENDENCIA';
-				$sql = $db->conn->GetInsertSQL(&$tabla,$record,true,null);
+				$sql = $db->conn->GetInsertSQL($tabla,$record,true,null);
 				//creamos registro en la tabla dependencia
 				$ok1 = $db->conn->Execute($sql);
 				//Crear estructura en bodega
