@@ -4,7 +4,7 @@
     //include ('mantenimiento.php');
   } else {
     //include ('./config.php');
-    header ('Location: ' . URL_INSTALADOR);
+    header ('Location: ' . instalador);
     exit();
   }
 ?>
