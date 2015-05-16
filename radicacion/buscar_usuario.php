@@ -922,7 +922,7 @@ switch ($db->entidad) {
 	?>
 		<b>
       <a href="javascript:pasar_datos('<?=$fechah?>');" name="btnpasar">
-        <span name=btnpasardatos id=btnpasardatos class="botones_largo" >PASAR DATOS AL FORMULARIO DE RADICACION</span>
+        <span name=btnpasardatos id="btnpasardatos" class="botones_largo" >PASAR DATOS AL FORMULARIO DE RADICACION</span>
       </a>
     </b>
 	  <input type=hidden name=verrad_sal value='<?=$verrad_sal?>' >

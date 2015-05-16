@@ -1,9 +1,5 @@
 <?php
 session_start();
-/**
-  * Modificacion Variables Globales Infometrika 2009-05
-  * Licencia GNU/GPL 
-  */
 
 foreach ($_GET as $key => $valor)
   ${$key} = $valor;
@@ -23,17 +19,10 @@ $tpDepeRad    = $_SESSION["tpDepeRad"];
 $tip3desc     = $_SESSION["tip3desc"];
 $tip3img      = $_SESSION["tip3img"];
 $ruta_raiz    = '..';
-/*
- * Variables de Session de Radicacion de Mails
- * Estas son variables que traen los valores con radicacoin de un correo Electronico
- *
- * @autor Orlando Burgos
- * @version Orfeo 3.7
- * @año 2008
- */
+
 $tipoMedio = (isset($_SESSION['tipoMedio']))? $_SESSION['tipoMedio'] : null;
-if($tipoMedio=="eMail"){
-  
+
+if($tipoMedio=="eMail") {
 	if(!$asu) { 
 	 $body =$msg->getBody($_GET['eMailMid'], $_GET['eMailPid']);
 	 $msg->getHeaders($eMailMid);
@@ -41,9 +30,7 @@ if($tipoMedio=="eMail"){
     $mail_us1= $msg->header[$eMailMid]['from_personal'][0]." <".$msg->header[$eMailMid]['from'][0].">";
 	}
 	}
-/**  Fin variables de session de Radicacion de Mail. **/
 $ruta_raiz = "..";
-// Modificado SGD 21-Septiembre-2007
 include_once "../include/db/ConnectionHandler.php";
 include_once "../class_control/AplIntegrada.php";
 $db = new ConnectionHandler("$ruta_raiz");
