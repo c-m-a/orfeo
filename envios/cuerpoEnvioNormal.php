@@ -34,11 +34,10 @@ if (!$dep_sel) $dep_sel = $dependencia;
 <link rel="stylesheet" type="text/css" href="js/spiffyCal/spiffyCal_v2_1.css">
 <?
  $ruta_raiz = "..";
- // Modificado SGD 14-Septiembre-2007
  define('ADODB_ASSOC_CASE', 2);
  include_once "$ruta_raiz/include/db/ConnectionHandler.php";
  $db = new ConnectionHandler("$ruta_raiz");	 
- //$db->conn->debug = true;
+ 
  if(!$carpeta) $carpeta=0;
  if(!$estado_sal)   {$estado_sal=2;}
  if(!$estado_sal_max) $estado_sal_max=3;
@@ -71,7 +70,6 @@ if (!$dep_sel) $dep_sel = $dependencia;
  include "../envios/paBuscar.php";   
  $pagina_sig = "../envios/envia.php";
  include "../envios/paOpciones.php";   
-// $db->conn->debug =true;
 	/*  GENERACION LISTADO DE RADICADOS
 	 *  Aqui utilizamos la clase adodb para generar el listado de los radicados
 	 *  Esta clase cuenta con una adaptacion a las clases utiilzadas de orfeo.
@@ -108,7 +106,5 @@ if (!$dep_sel) $dep_sel = $dependencia;
 	}
  ?>
   </form>
-
 </body>
-
 </html>
