@@ -194,7 +194,7 @@
                       <img src="./imagenes/menu.gif" width="15" height="18" alt="{$DATA_CARPETAS}" title="{$DATA_CARPETAS}" name="plus{$ID_CUERPO_TX}">
                     </td>
                     <td width="125">
-                      <a onclick="cambioMenu({$ID_CUERPO_TX});verPersonales({$ID_CUERPO_TX});" href="{$ORFEO_URL}menu_general.php#marcaPersonales" class="menu_princ"  alt="Despliegue de Carpetas Personales" title="Despliegue de Carpetas Personales" name="marcaPersonales">
+                      <a onclick="cambioMenu({$ID_CUERPO_TX});verPersonales({$ID_CUERPO_TX});return false;" href="{$ORFEO_URL}menu_general.php#marcaPersonales" class="menu_princ"  alt="Despliegue de Carpetas Personales" title="Despliegue de Carpetas Personales" name="marcaPersonales">
                       PERSONALES
                       </a>
                     </td>
