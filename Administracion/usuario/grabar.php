@@ -1,31 +1,10 @@
 <?php
-  /*************************************************************************************/
-  /* ORFEO GPL:Sistema de Gestion Documental		http://www.orfeogpl.org	     */
-  /*	Idea Original de la SUPERINTENDENCIA DE SERVICIOS PUBLICOS DOMICILIARIOS     */
-  /*				COLOMBIA TEL. (57) (1) 6913005  orfeogpl@gmail.com   */
-  /* ===========================                                                       */
-  /*                                                                                   */
-  /* Este programa es software libre. usted puede redistribuirlo y/o modificarlo       */
-  /* bajo los terminos de la licencia GNU General Public publicada por                 */
-  /* la "Free Software Foundation"; Licencia version 2. 			             */
-  /*                                                                                   */
-  /* Copyright (c) 2005 por :	  	  	                                     */
-  /* SSPS "Superintendencia de Servicios Publicos Domiciliarios"                       */
-  /*   Jairo Hernan Losada  jlosada@gmail.com                Desarrollador             */
-  /* C.R.A.  "COMISION DE REGULACION DE AGUAS Y SANEAMIENTO AMBIENTAL"                 */
-  /*   Lucia Ojeda          lojedaster@gmail.com             Desarrolladora            */
-  /* D.N.P. "Departamento Nacional de Planeación"                                      */
-  /*   Hollman Ladino       hollmanlp@gmail.com              Desarrollador             */
-  /*                                                                                   */
-  /* Colocar desde esta lInea las Modificaciones Realizadas Luego de la Version 3.5    */
-  /*  Nombre Desarrollador   Correo     Fecha   Modificacion                           */
-  /*************************************************************************************/
   session_start();
   $ruta_raiz = '../..';
   include ('../../config.php');
   include ('../../include/db/ConnectionHandler.php');
   $db = new ConnectionHandler($ruta_raiz);
-
+  
   $isql1        = null;
   $cl           = null;
   $prestamo     = null;
@@ -50,7 +29,6 @@
   $usua_radmail = null;
   $usua_adment  = null;
 
-  
   // Capturando variables por GET y POST
   foreach ($_GET as $key => $valor)
     ${$key} = $valor;
@@ -65,7 +43,6 @@
   $tip3desc     = $_SESSION["tip3desc"];
   $tip3img      = $_SESSION["tip3img"];
 
-  //$db->conn->SetFetchMode(ADODB_FETCH_ASSOC);
   $sqlFechaHoy = $db->conn->DBTimeStamp(time());
 ?>
 <!doctype html>
@@ -123,29 +100,78 @@ $isql = "SELECT USUA_DOC,
                                                 '" . $usuLogin . "')";
 		$db->conn->Execute($isql);
 	}
-	if($rs->fields["USUA_DOC"] <> $cedula)
-	{	$isql1 = "USUA_DOC = ".$cedula.", ";
-		$isql = "INSERT INTO SGD_USH_USUHISTORICO (SGD_USH_ADMCOD, SGD_USH_ADMDEP, SGD_USH_ADMDOC, SGD_USH_USUCOD, SGD_USH_USUDEP, SGD_USH_USUDOC, SGD_USH_MODCOD, SGD_USH_FECHEVENTO, SGD_USH_USULOGIN) VALUES ($codusuario, $dependencia, '".$usua_doc."', ".$rs->fields["USUA_CODI"].", $dep_sel, '".$cedula."', 4, ".$sqlFechaHoy.", '".$usuLogin."')";
+	if($rs->fields["USUA_DOC"] <> $cedula) {
+    $isql1 = "USUA_DOC = ".$cedula.", ";
+		$isql = "INSERT INTO SGD_USH_USUHISTORICO (SGD_USH_ADMCOD,
+                                                SGD_USH_ADMDEP,
+                                                SGD_USH_ADMDOC,
+                                                SGD_USH_USUCOD,
+                                                SGD_USH_USUDEP,
+                                                SGD_USH_USUDOC,
+                                                SGD_USH_MODCOD,
+                                                SGD_USH_FECHEVENTO,
+                                                SGD_USH_USULOGIN)
+                                        VALUES ($codusuario,
+                                                $dependencia,
+                                                '".$usua_doc."',
+                                                ".$rs->fields["USUA_CODI"].",
+                                                $dep_sel,
+                                                '".$cedula."',
+                                                4,
+                                                ".$sqlFechaHoy.",
+                                                '".$usuLogin."')";
 		$db->conn->Execute($isql);
 	}
-	if($rs->fields["USUA_NOMB"] <> $nombre)
-	{	$isql1 = $isql1." USUA_NOMB = '".$nombre."', ";
-		$isql = "INSERT INTO SGD_USH_USUHISTORICO (SGD_USH_ADMCOD, SGD_USH_ADMDEP, SGD_USH_ADMDOC, SGD_USH_USUCOD, SGD_USH_USUDEP, SGD_USH_USUDOC, SGD_USH_MODCOD, SGD_USH_FECHEVENTO, SGD_USH_USULOGIN) VALUES ($codusuario, $dependencia, '".$usua_doc."', ".$rs->fields["USUA_CODI"].", $dep_sel, '".$cedula."', 5, ".$sqlFechaHoy.", '".$usuLogin."')";
+	if($rs->fields["USUA_NOMB"] <> $nombre) {
+    $isql1 = $isql1." USUA_NOMB = '".$nombre."', ";
+		$isql = "INSERT INTO SGD_USH_USUHISTORICO (SGD_USH_ADMCOD,
+                                                SGD_USH_ADMDEP,
+                                                SGD_USH_ADMDOC,
+                                                SGD_USH_USUCOD,
+                                                SGD_USH_USUDEP,
+                                                SGD_USH_USUDOC,
+                                                SGD_USH_MODCOD,
+                                                SGD_USH_FECHEVENTO,
+                                                SGD_USH_USULOGIN)
+                                        VALUES ($codusuario,
+                                                $dependencia,
+                                                '".$usua_doc."',
+                                                ".$rs->fields["USUA_CODI"].",
+                                                $dep_sel,
+                                                '".$cedula."',
+                                                5,
+                                                ".$sqlFechaHoy.",
+                                                '".$usuLogin."')";
 		$db->conn->Execute($isql);
 	}
 
-	if($rs->fields["DEPE_CODI"] <> $dep_sel)
-	{	if (!$radicado)
-		{	$isqlCod = "SELECT MAX(USUA_CODI) AS NUMERO FROM USUARIO WHERE DEPE_CODI = ".$dep_sel;
+	if($rs->fields["DEPE_CODI"] <> $dep_sel) {
+    if (!$radicado) {
+      $isqlCod = "SELECT MAX(USUA_CODI) AS NUMERO FROM USUARIO WHERE DEPE_CODI = ".$dep_sel;
 			$rs7= $db->query($isqlCod);
 			$nusua_codi = $rs7->fields["NUMERO"] + 1;
 			$isql1 = $isql1." DEPE_CODI = ".$dep_sel.", ";
 			$isql1 = $isql1." USUA_CODI = ".$nusua_codi.", ";
-			$isql = "INSERT INTO SGD_USH_USUHISTORICO (SGD_USH_ADMCOD, SGD_USH_ADMDEP, SGD_USH_ADMDOC, SGD_USH_USUCOD, SGD_USH_USUDEP, SGD_USH_USUDOC, SGD_USH_MODCOD, SGD_USH_FECHEVENTO, SGD_USH_USULOGIN) VALUES ($codusuario, $dependencia, '".$usua_doc."', ".$rs->fields["USUA_CODI"].", $dep_sel, '".$cedula."', 3, ".$sqlFechaHoy.", '".$usuLogin."')";
+			$isql = "INSERT INTO SGD_USH_USUHISTORICO (SGD_USH_ADMCOD,
+                                                  SGD_USH_ADMDEP,
+                                                  SGD_USH_ADMDOC,
+                                                  SGD_USH_USUCOD,
+                                                  SGD_USH_USUDEP,
+                                                  SGD_USH_USUDOC,
+                                                  SGD_USH_MODCOD,
+                                                  SGD_USH_FECHEVENTO,
+                                                  SGD_USH_USULOGIN)
+                                          VALUES ($codusuario,
+                                                  $dependencia,
+                                                  '".$usua_doc."',
+                                                  ".$rs->fields["USUA_CODI"].",
+                                                  $dep_sel,
+                                                  '".$cedula."',
+                                                  3,
+                                                  ".$sqlFechaHoy.",
+                                                  '".$usuLogin."')";
 			$db->conn->Execute($isql);
-		}
-		else
-		{
+		} else {
 ?>
 		<table align="center" border="2" bordercolor="#000000">
 			<tr bordercolor="#FFFFFF"> <td width="211" height="30" colspan="2" class="listado2"><p><span class=etexto>
@@ -167,18 +193,8 @@ $isql = "SELECT USUA_DOC,
 		return;
 		}
 	}
-	if($rs->fields["USUA_AT"] <> $ubicacion)
-	{	$isql1 = $isql1." USUA_AT = '".$ubicacion."', ";
-		$isql = "INSERT INTO SGD_USH_USUHISTORICO (SGD_USH_ADMCOD, SGD_USH_ADMDEP, SGD_USH_ADMDOC, SGD_USH_USUCOD, SGD_USH_USUDEP, SGD_USH_USUDOC, SGD_USH_MODCOD, SGD_USH_FECHEVENTO, SGD_USH_USULOGIN) VALUES ($codusuario, $dependencia, '".$usua_doc."', ".$rs->fields["USUA_CODI"].", $dep_sel, '".$cedula."', 7, ".$sqlFechaHoy.", '".$usuLogin."')";
-		$db->conn->Execute($isql);
-	}
-	if($rs->fields["USUA_EXT"] <> $extension)
-	{	$isql1 = $isql1." USUA_EXT = ".$extension.", ";
-		$isql = "INSERT INTO SGD_USH_USUHISTORICO (SGD_USH_ADMCOD, SGD_USH_ADMDEP, SGD_USH_ADMDOC, SGD_USH_USUCOD, SGD_USH_USUDEP, SGD_USH_USUDOC, SGD_USH_MODCOD, SGD_USH_FECHEVENTO, SGD_USH_USULOGIN) VALUES ($codusuario, $dependencia, '".$usua_doc."', ".$rs->fields["USUA_CODI"].", $dep_sel, '".$cedula."', 39, ".$sqlFechaHoy.", '".$usuLogin."')";
-		$db->conn->Execute($isql);
-	}
-	if($rs->fields["USUA_PISO"] <> $piso)
-	{	$isql1 = $isql1." USUA_PISO = ".$piso.", ";
+	if($rs->fields["USUA_AT"] <> $ubicacion) {
+    $isql1 = $isql1." USUA_AT = '".$ubicacion."', ";
 		$isql = "INSERT INTO SGD_USH_USUHISTORICO (SGD_USH_ADMCOD,
                                                 SGD_USH_ADMDEP,
                                                 SGD_USH_ADMDOC,
@@ -191,13 +207,80 @@ $isql = "SELECT USUA_DOC,
                                         VALUES ($codusuario,
                                                 $dependencia,
                                                 '".$usua_doc."',
-                                                ".$rs->fields["USUA_CODI"].", $dep_sel, '".$cedula."',8, ".$sqlFechaHoy.", '".$usuLogin."')";
+                                                ".$rs->fields["USUA_CODI"].",
+                                                $dep_sel,
+                                                '".$cedula."',
+                                                7,
+                                                ".$sqlFechaHoy.",
+                                                '".$usuLogin."')";
+		$db->conn->Execute($isql);
+	}
+	if($rs->fields["USUA_EXT"] <> $extension)
+	{	$isql1 = $isql1." USUA_EXT = ".$extension.", ";
+		$isql = "INSERT INTO SGD_USH_USUHISTORICO (SGD_USH_ADMCOD,
+                                                SGD_USH_ADMDEP,
+                                                SGD_USH_ADMDOC,
+                                                SGD_USH_USUCOD,
+                                                SGD_USH_USUDEP,
+                                                SGD_USH_USUDOC,
+                                                SGD_USH_MODCOD,
+                                                SGD_USH_FECHEVENTO,
+                                                SGD_USH_USULOGIN)
+                                        VALUES ($codusuario,
+                                                $dependencia,
+                                                '".$usua_doc."',
+                                                ".$rs->fields["USUA_CODI"].",
+                                                $dep_sel,
+                                                '".$cedula."',
+                                                39,
+                                                ".$sqlFechaHoy.",
+                                                '".$usuLogin."')";
+		$db->conn->Execute($isql);
+	}
+
+	if($rs->fields["USUA_PISO"] <> $piso) {
+    $isql1 = $isql1." USUA_PISO = ".$piso.", ";
+		$isql = "INSERT INTO SGD_USH_USUHISTORICO (SGD_USH_ADMCOD,
+                                                SGD_USH_ADMDEP,
+                                                SGD_USH_ADMDOC,
+                                                SGD_USH_USUCOD,
+                                                SGD_USH_USUDEP,
+                                                SGD_USH_USUDOC,
+                                                SGD_USH_MODCOD,
+                                                SGD_USH_FECHEVENTO,
+                                                SGD_USH_USULOGIN)
+                                        VALUES ($codusuario,
+                                                $dependencia,
+                                                '".$usua_doc."',
+                                                ".$rs->fields["USUA_CODI"].",
+                                                $dep_sel,
+                                                '".$cedula."',
+                                                8,
+                                                ".$sqlFechaHoy.",
+                                                '".$usuLogin."')";
 		$db->conn->Execute($isql);
 	}
 
 	if($rs->fields["USUA_EMAIL"] <> $email) {
     $isql1 = $isql1." USUA_EMAIL = '".$email."'";
-		$isql = "INSERT INTO SGD_USH_USUHISTORICO (SGD_USH_ADMCOD, SGD_USH_ADMDEP, SGD_USH_ADMDOC, SGD_USH_USUCOD, SGD_USH_USUDEP, SGD_USH_USUDOC, SGD_USH_MODCOD, SGD_USH_FECHEVENTO, SGD_USH_USULOGIN) VALUES ($codusuario, $dependencia, '".$usua_doc."', ".$rs->fields["USUA_CODI"].", $dep_sel, '".$cedula."', 40, ".$sqlFechaHoy.", '".$usuLogin."')";
+		$isql = "INSERT INTO SGD_USH_USUHISTORICO (SGD_USH_ADMCOD,
+                                                SGD_USH_ADMDEP,
+                                                SGD_USH_ADMDOC,
+                                                SGD_USH_USUCOD,
+                                                SGD_USH_USUDEP,
+                                                SGD_USH_USUDOC,
+                                                SGD_USH_MODCOD,
+                                                SGD_USH_FECHEVENTO,
+                                                SGD_USH_USULOGIN)
+                                        VALUES ($codusuario,
+                                                $dependencia,
+                                                '".$usua_doc."',
+                                                ".$rs->fields["USUA_CODI"].",
+                                                $dep_sel,
+                                                '".$cedula."',
+                                                40,
+                                                ".$sqlFechaHoy.",
+                                                '".$usuLogin."')";
 		$db->conn->Execute($isql);
 	}
 	else
@@ -325,14 +408,59 @@ $isql = "SELECT USUA_DOC,
 	}
 
 	$isql = "select USUA_CODI from USUARIO WHERE USUA_LOGIN = '".strtoupper($usuLogin)."'";
+
 	$rs = $db->conn->Execute($isql);
-	if ($masiva)
-	{	$isql = "INSERT INTO CARPETA_PER (USUA_CODI, DEPE_CODI, NOMB_CARP, DESC_CARP, CODI_CARP) VALUES (" . $rs->fields["USUA_CODI"] . ", " . $dep_sel . ", 'Masiva', 'Radicacion Masiva', 5 )";
-		$db->conn->Execute($isql);
+  
+	if ($masiva) {
+    $isql = "INSERT INTO CARPETA_PER (USUA_CODI,
+                                      DEPE_CODI,
+                                      NOMB_CARP,
+                                      DESC_CARP,
+                                      CODI_CARP)
+                              VALUES (" . $rs->fields["USUA_CODI"] . ",
+                                      " . $dep_sel . ",
+                                      'Masiva',
+                                      'Radicacion Masiva',
+                                      5 )";
+	  $db->conn->Execute($isql);
 	}
-	$isql = "INSERT INTO SGD_USH_USUHISTORICO (SGD_USH_ADMCOD, SGD_USH_ADMDEP, SGD_USH_ADMDOC, SGD_USH_USUCOD, SGD_USH_USUDEP, SGD_USH_USUDOC, SGD_USH_MODCOD, SGD_USH_FECHEVENTO,SGD_USH_USULOGIN) VALUES ($codusuario, $dependencia, '". $usua_doc."', ".$rs->fields["USUA_CODI"].", ".$dep_sel.", '".$cedula."', 1 , ".$sqlFechaHoy.", '".$usuLogin."')";
-	$db->conn->Execute($isql);
-	$isql = "select USUA_ESTA, USUA_PRAD_TP2, USUA_PERM_ENVIOS, USUA_ADMIN, USUA_ADMIN_ARCHIVO, USUA_NUEVO, CODI_NIVEL, USUA_PRAD_TP1, USUA_MASIVA, USUA_PERM_DEV, SGD_PANU_CODI, USUA_PRAD_TP3, USUA_PRAD_TP5 from USUARIO WHERE USUA_LOGIN = '".$usuLogin."'";
+
+	$isql = "INSERT INTO SGD_USH_USUHISTORICO (SGD_USH_ADMCOD,
+                                              SGD_USH_ADMDEP,
+                                              SGD_USH_ADMDOC,
+                                              SGD_USH_USUCOD,
+                                              SGD_USH_USUDEP,
+                                              SGD_USH_USUDOC,
+                                              SGD_USH_MODCOD,
+                                              SGD_USH_FECHEVENTO,
+                                              SGD_USH_USULOGIN)
+                                      VALUES ($codusuario,
+                                              $dependencia,
+                                              '". $usua_doc."',
+                                              ".$rs->fields["USUA_CODI"].",
+                                              ".$dep_sel.",
+                                              '".$cedula."',
+                                              1,
+                                              " . $sqlFechaHoy . ",
+                                              '".$usuLogin."')";
+	
+  $db->conn->Execute($isql);
+	
+  $isql = "select USUA_ESTA,
+                  USUA_PRAD_TP2,
+                  USUA_PERM_ENVIOS,
+                  USUA_ADMIN,
+                  USUA_ADMIN_ARCHIVO,
+                  USUA_NUEVO,
+                  CODI_NIVEL,
+                  USUA_PRAD_TP1,
+                  USUA_MASIVA,
+                  USUA_PERM_DEV,
+                  SGD_PANU_CODI,
+                  USUA_PRAD_TP3,
+                  USUA_PRAD_TP5
+            from USUARIO
+            WHERE USUA_LOGIN = '".$usuLogin."'";
 	$rs = $db->conn->query($isql);
 
 	//Confirmamos las inserciones de datos
