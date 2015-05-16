@@ -63,13 +63,13 @@ AllowUsers usuario_sistema
 ```
 
 ### Reiniciando y conectandose via SSH
-
+```
 sudo reload ssh
-
+```
 Para conectarse a la maquina SSH
-
+```
 ssh -p 55000 usuario_sistema@192.168.0.123
-
+```
 ### Instalacion de Apache
 
 ```
