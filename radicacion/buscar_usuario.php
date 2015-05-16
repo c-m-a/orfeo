@@ -604,7 +604,9 @@ if(isset($no_documento) || isset($nombre_essp)) {
 	<TD class="listado5"> <font size="-3"> <?=trim($rs->fields["SGD_CIU_TELEFONO"]) ?> </font></TD>
 	<TD class="listado5"> <font size="-3"> <?=substr($rs->fields["SGD_CIU_EMAIL"],0,30) ?></font></TD>
 	<TD width="6%" align="center" valign="top" class="listado5">
-	<font size="-3"><a href="#btnpasar" onClick="pasar('<?=$i ?>',1);" class="titulos5">-<?=$label_us?></a></font>
+	<font size="-3">
+    <a href="#btnpasar" onClick="pasar('<?=$i ?>',1);return false;" class="titulos5">-<?=$label_us?></a>
+  </font>
 	</TD>
 <? 
 			if(empty($envio_salida) || $ent==5) { 
