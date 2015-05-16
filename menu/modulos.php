@@ -220,6 +220,17 @@
                         '&primera=1' .
                         '&ent=' . $tipo_radicado .
                         '&depende=' . $dependencia;
+
+  $enlace_acceso = 'permisos/index.php' .
+                    '?' . $phpsession .
+                    '&krd=' . $krd .
+                    '&fechaf=' . $fechah .
+                    '&carpeta=8' .
+                    '&devolucion=2' .
+                    '&estado_sal=4' .
+                    '&nomcarpeta= Documentos Para Impresion' .
+                    '&orno=1' .
+                    '&adodb_next_page=1';
   
   $smarty->assign('MOSTRAR_ARCHIVO_CENTRAL',  $mostrar_archivo_central);
   $smarty->assign('ENLACE_DOCUMENTAL',        $enlace_documental);
