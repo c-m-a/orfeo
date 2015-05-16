@@ -17,7 +17,8 @@ Este software se entrega sin ninguna garantia de errores en el codigo fuente, ba
 * [Reglas de Codificacion](#views-and-templates)
 * [Soporte y Licencia](#databases)
 
-[![Twitter](ui/images/twitter.png)](https://twitter.com/cmauricio4u)
+
+Cualquier informacion pueden contactarme a mi cuenta de [![@Cmauricio4u](ui/images/twitter.png)](https://twitter.com/cmauricio4u)
 
 ### Version 4.0 Es Finalmente Liberada!
 
