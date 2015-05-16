@@ -1,13 +1,13 @@
 <?php
  session_start();
- error_reporting(0);
+ 
  $anoActual = date("Y");
  $ruta_raiz = "..";
- if (!$_SESSION['dependencia'] and !$_SESSION['depe_codi_territorial'])	include "../rec_session.php";
+ 
+ if (!$_SESSION['dependencia'] and !$_SESSION['depe_codi_territorial'])
+  include "../rec_session.php";
  include_once "$ruta_raiz/include/db/ConnectionHandler.php";
- $db = new ConnectionHandler("$ruta_raiz");	
-
- $db->conn->debug=false;
+ $db = new ConnectionHandler($ruta_raiz);	
 
  define('ADODB_FETCH_ASSOC',2);
  $ADODB_FETCH_MODE = ADODB_FETCH_ASSOC;
@@ -101,30 +101,47 @@ if ($minutos_ini==$i){ $datoss = " selected "; }else{ $datoss = " "; }?>
     <TD height="26" class='titulos2'>Dependencia</TD>
     <TD valign="top" class='listado2'>
 	<?
-	$encabezado = "".session_name()."=".session_id()."&krd=$krd&fecha_busq=$fecha_busq&estado_sal=$estado_sal&estado_sal_max=$estado_sal_max&dep_sel=$dep_sel&filtroSelect=$filtroSelect&nomcarpeta=$nomcarpeta&orderTipo=$orderTipo&orderNo=";
-        $linkPagina = "$PHP_SELF?$encabezado&orderTipo=$orderTipo";
+	$encabezado = session_name()."=".session_id().
+                '&krd=' . $krd .
+                '&fecha_busq=' . $fecha_busq .
+                '&estado_sal=' . $estado_sal .
+                '&estado_sal_max=' . $estado_sal_max .
+                '&dep_sel=' . $dep_sel .
+                '&filtroSelect=' . $filtroSelect .
+                '&nomcarpeta=' . $nomcarpeta .
+                '&orderTipo=' . $orderTipo .
+                '&orderNo=';
+    
+    $linkPagina = "$PHP_SELF?$encabezado&orderTipo=$orderTipo";
     include "$ruta_raiz/include/query/devolucion/querydependencia.php";
-	error_reporting(7);
-	$ss_RADI_DEPE_ACTUDisplayValue = "--- TODAS LAS DEPENDENCIAS ---";
+	
+  $ss_RADI_DEPE_ACTUDisplayValue = "--- TODAS LAS DEPENDENCIAS ---";
 	$valor = 0;
+  
+  $condicion = (isset($depe_codi_territorial))? 'where depe_codi_territorial = ' . $depe_codi_territorial : '';
+
 	$sqlD = "select $sqlConcat ,depe_codi from dependencia 
-       	            where depe_codi_territorial = $depe_codi_territorial
+            $condicion
 					order by depe_codi";
-	$rsDep = $db->conn->Execute($sqlD);
-	 print $rsDep->GetMenu2("dep_sel","$dep_sel",$blank1stItem = "$valor:$ss_RADI_DEPE_ACTUDisplayValue", false, 0," onChange='submit();' class='select'");	
+	
+  $rsDep = $db->conn->Execute($sqlD);
+  print $rsDep->GetMenu2("dep_sel",
+                          "$dep_sel",
+                          $blank1stItem = "$valor:$ss_RADI_DEPE_ACTUDisplayValue",
+                          false,
+                          0,
+                          " onChange='submit();' class='select'");	
 	?>
 	
-  </TR><tr>
+  </tr><tr>
    </tr><tr><td height="26" colspan="2" valign="top" class='titulos2'> <center>		
      <INPUT TYPE=SUBMIT name=devolver_rad Value=' VISTA PRELIMINAR ' class=botones_largo>      </center></td>
   </tr>
 </TABLE>
 <?php
-error_reporting(7);
-if(($devolver_rad or $devolver_dependencias) and $fecha_busq)
-  {
-    if ($dep_sel == 0 ) 
-		{
+
+if(($devolver_rad or $devolver_dependencias) and $fecha_busq) {
+    if ($dep_sel == 0) {
          include "$ruta_raiz/include/query/devolucion/querydependencia.php";
 	     $sqlD = "select $sqlConcat ,depe_codi from dependencia 
        	            where depe_codi_territorial = $depe_codi_territorial
