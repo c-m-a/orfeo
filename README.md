@@ -120,7 +120,7 @@ sudo apt-get install php5-pgsql
 sudo apt-get install git
 ```
 
-### Descarga de Orfeo plus desde el repositorio
+### Descarga de Orfeo Plus del repositorio
 
 ```
 cd /var/www/html/
