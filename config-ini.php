@@ -8,7 +8,7 @@
   }
 
   if (!defined('NOMBRE_SERVIDOR')) {
-    define ('NOMBRE_SERVIDOR', 'nombre_servidor');
+    define ('NOMBRE_SERVIDOR', 'localhost');
     define ('URL_SERVIDOR', 'http://' . NOMBRE_SERVIDOR . '/');
     
     // Si realizo configuracion se servidor apache por dejar la constante en blanco
@@ -29,7 +29,7 @@
   
   // Directorio donde se encuentra el sistema
   if (!defined('ORFEO_PATH')) {
-    define('ORFEO_PATH', 'direccion_absoluta_orfeo');
+    define('ORFEO_PATH', '/var/www/html/orfeo/');
   
     // Bodega de datos orfeo
     define('BODEGA_ORFEO',    ORFEO_PATH . 'bodega/');
@@ -93,10 +93,9 @@
     define ('LONGITUD_DEPENDENCIA', 3);
  
   //Usuario de conexion con permisos de modificacion y creacion de objetos en la Base de datos.
-  $usuario    = 'postgres';
   $usuario    = 'usuario';
   $contrasena = 'contrasena';
-  $servicio   = 'base de datos';    //Nombre de la base de datos de ORFEO
+  $servicio   = 'base_de_datos';    //Nombre de la base de datos de ORFEO
   
   // Servidor base de datos
   $servidor   = 'localhost:5432';
