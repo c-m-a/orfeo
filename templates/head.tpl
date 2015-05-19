@@ -8,4 +8,4 @@
     <link href="{$ORFEO_URL}css/navbar-fixed-top.css" rel="stylesheet">
     
     <!-- Custom styles for this template -->
-    <link href="{$ORFEO_URL}/css/custom.css" rel="stylesheet">
+    <link href="{$ORFEO_URL}css/custom.css" rel="stylesheet">
