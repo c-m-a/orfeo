@@ -540,7 +540,7 @@ if(isset($no_documento) || isset($nombre_essp)) {
  
  } 
 	if($tbusqueda==6)
-  {	$array_nombre = split(" ",$nombre_essp."    ");
+  {	$array_nombre = explode(" ",$nombre_essp."    ");
   //Query que busca funcionario
 	$isql = "select usua_doc AS SGD_CIU_CEDULA
 	,usua_nomb as SGD_CIU_NOMBRE
