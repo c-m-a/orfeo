@@ -61,8 +61,10 @@
                       FROM USUARIO
                       WHERE USUA_LOGIN ='$krd'";
     
-    if ($usua_nuevo == ES_NUEVO) {
-      header('Location: ' . ORFEO_URL . '/contraxx.php?krd=' . $krd);
+    $es_nuevo = $usua_nuevo != null && $usua_nuevo == ES_NUEVO;
+    
+    if ($es_nuevo) {
+      header('Location: ' . ORFEO_URL . 'contrasena_usuario.php?krd=' . $krd);
       exit();
     } else {
       // Autenticar
