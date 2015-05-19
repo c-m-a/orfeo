@@ -238,8 +238,8 @@
     define('ACTIVAR_RENDER', true);
 
   // Constante que para verificar si el usuario es nuevo
-  if (!defined('ES_NUEVO'))
-    define('ES_NUEVO', 0);
+  if (!defined('NUEVO'))
+    define('NUEVO', 0);
 
   // Idioma
   if (!defined('LENGUAJE'))
