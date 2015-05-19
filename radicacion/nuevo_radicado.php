@@ -1631,8 +1631,14 @@ if (isset($Submit3) && $Submit3 == 'Radicar') {
 	
   include "grb_direcciones.php";
 	$verradicado = $nurad;
+  $enlace_radicado = './ver_radicado.php' .
+                      '?verrad=' . $nurad .
+                      '&var_envio=' . $var_envio .
+                      $datos_envio .
+                      '&datoVer=985' .
+                      '&ruta_raiz=' . $ruta_raiz;
 
-	echo "<script>window.open('../verradicado.php?verrad=$nurad&var_envio=$var_envio".$datos_envio."&datoVer=985&ruta_raiz=".$ruta_raiz."', 'Modificaciï¿½n_de_Datos', 'height=700,width=650,scrollbars=yes');</script>";
+	echo "<script>window.open('$enlace_radicado', 'Modificaciï¿½n_de_Datos', 'height=700,width=650,scrollbars=yes');</script>";
 	}
 	echo "<input type='hidden' name='nurad' value='$nurad'>";
 	echo "<input type='hidden' name='codusuarioActu' value='$codusuarioActu'>";
@@ -1675,8 +1681,7 @@ else
 }
 
 // Aqui se entra a modificar el radicado
-if(( ($Submit4 and $coddepeinf!=$coddepe)) )
-{
+if(( ($Submit4 and $coddepeinf!=$coddepe)) ) {
 
 /**
 	*	La siguiente decicion pregunta si la dependencia con la cual sale el radicado es
