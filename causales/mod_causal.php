@@ -1,27 +1,32 @@
 <?php
 session_start();
+
 foreach ($_GET as $key => $valor)   ${$key} = $valor;
 foreach ($_POST as $key => $valor)   ${$key} = $valor;
-$ruta_raiz = "..";
-$krd = $_SESSION["krd"];
-$dependencia = $_SESSION["dependencia"];
-$usua_doc = $_SESSION["usua_doc"];
-$codusuario = $_SESSION["codusuario"];
-$tip3Nombre=$_SESSION["tip3Nombre"];
-$tip3desc = $_SESSION["tip3desc"];
-$tip3img =$_SESSION["tip3img"];
+
+$ruta_raiz    = "..";
+$krd          = $_SESSION["krd"];
+$dependencia  = $_SESSION["dependencia"];
+$usua_doc     = $_SESSION["usua_doc"];
+$codusuario   = $_SESSION["codusuario"];
+$tip3Nombre   = $_SESSION["tip3Nombre"];
+$tip3desc     = $_SESSION["tip3desc"];
+$tip3img      = $_SESSION["tip3img"];
 
 define('ADODB_ASSOC_CASE', 1);
 include_once ("$ruta_raiz/include/db/ConnectionHandler.php");	
-if (!$db) $db = new ConnectionHandler($ruta_raiz);
+
+if (!$db)
+  $db = new ConnectionHandler($ruta_raiz);
+
 $db->conn->SetFetchMode(ADODB_FETCH_ASSOC);
-if(!$verrad) $verrad = $verradicado;
+
+if(!$verrad)
+  $verrad = $verradicado;
 ?>
 <html>
 <head>
 <link rel="stylesheet" href="../estilos/orfeo.css">
-<script src="js/popcalendar.js"></script>
-<script src="js/mensajeria.js"></script>
 <script language="javascript">
 	vecSubseccionE = new Array (
 <?php
@@ -338,18 +343,15 @@ if (($grabar_causal) && (($causal_new != $causal_grb) || ($deta_causal != $deta_
 			          dcau.SGD_DCAU_CODIGO = caux.SGD_DCAU_CODIGO AND
 			          cau.SGD_CAU_CODIGO = dcau.SGD_CAU_CODIGO";
 		$rs = $db->query($sqlSelect);
-		if (!$rs->EOF)
-		{
+		if (!$rs->EOF) {
 			$causal_grb = $rs->fields["SGD_CAU_CODIGO"];
 			$causal_nombre = $rs->fields["SGD_CAU_DESCRIP"];
 			$deta_causal_grb = $rs->fields["SGD_DCAU_CODIGO"];
 			$dcausal_nombre = $rs->fields["SGD_DCAU_DESCRIP"];
-}	}	}
-?>
+    }
+  }
+}
 
-<?php
-//$db->conn->debug = true;
-error_reporting(7);
 // capturando causal cuando envie el radicado 
 $isql = "SELECT caux.SGD_DCAU_CODIGO, 
 				dcau.SGD_CAU_CODIGO 
@@ -393,9 +395,11 @@ echo $rs->GetMenu2('deta_causal',$deta_causal,'0:No aplica.',false,1,'class="sel
 <?php
 if ($deta_causal and $sector)
 {
-	$isql = "SELECT SGD_DDCA_DESCRIP, SGD_DDCA_CODIGO 
-			FROM SGD_DDCA_DDSGRGDO 
-			WHERE SGD_DCAU_CODIGO = $deta_causal AND PAR_SERV_SECUE = $sector";
+	$isql = "SELECT SGD_DDCA_DESCRIP,
+                  SGD_DDCA_CODIGO 
+              FROM SGD_DDCA_DDSGRGDO 
+              WHERE SGD_DCAU_CODIGO = $deta_causal AND
+                    PAR_SERV_SECUE = $sector";
 	$rs = $db->query($isql);
 	echo $rs->GetMenu2('ddca_causal',$ddca_causal,'0:No aplica.',false,1,'onChange="submit();" class="select"');
 }
