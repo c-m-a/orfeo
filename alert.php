@@ -1,8 +1,8 @@
 <?php
   session_start();
   $ruta_raiz = ".";
-  include_once "$ruta_raiz/include/db/ConnectionHandler.php";
-  $db = new ConnectionHandler("$ruta_raiz");
+  include('./include/db/ConnectionHandler.php');
+  $db = new ConnectionHandler($ruta_raiz);
   $usua_doc = $_SESSION['usua_doc'];
   $db->conn->SetFetchMode(ADODB_FETCH_ASSOC);
   switch ($db->driver) {
@@ -15,7 +15,6 @@
       break;
   }
   $rs = $db->query($query);
-  //var_dump($query);	
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
