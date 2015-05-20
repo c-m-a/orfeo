@@ -2,16 +2,6 @@
   include('../config.php');
   
   session_start();
-  /**
-    * Pagina de Estadisticas  que muestra el contenido de las Carpetas
-    * Fundacion Correlibre.org
-    * Añadida por Informetrika - IDRD en el año 2009
-    *	Tomado de Alertas Diseñadas en Supersolidaria.
-    *
-    * Se añadio a la 3.8.0 por
-    * @autor Jairo Losada 2009-07
-    * @licencia GNU/GPL
-    */
 
   foreach ($_GET as $key => $valor)   ${$key} = $valor;
   foreach ($_POST as $key => $valor)   ${$key} = $valor;
@@ -37,7 +27,7 @@
     $xUsuario = 0;
   
   $ruta_raiz = "..";
-  require_once($ruta_raiz . "/include/db/ConnectionHandler.php");
+  require_once('../include/db/ConnectionHandler.php');
   
   $db = new ConnectionHandler($ruta_raiz);
   $db->conn->SetFetchMode(ADODB_FETCH_ASSOC);
@@ -201,10 +191,8 @@
     }
   }
   ?>
-  </TD>
-  <TD colspan="5" align="center">
-  <img src="../logoEntidad.gif" width=150> 
-  </TD></tr>
+  </td>
+  </tr>
   <TR>
    <TD  align="center" width="10%">
     <div id="estadoActual"></div>
