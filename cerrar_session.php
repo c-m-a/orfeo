@@ -1,4 +1,5 @@
 <?php
+  include('./config.php');
   include('./include/db/ConnectionHandler.php');
   
   session_start();
@@ -8,6 +9,7 @@
   
   $db = new ConnectionHandler($ruta_raiz);
   $db->conn->SetFetchMode(ADODB_FETCH_ASSOC);
+  
   $fecha = "'FIN  " . date("Y:m:d H:mi:s") . "'";
  
   $isql  = "update usuario 
@@ -15,13 +17,13 @@
 		          where USUA_SESION like '%" . session_id() . "%'";
   
   if (!$db->conn->Execute($isql))
-    echo "<p><center>No pude actualizar<p><br>";
+    exit('Ocurrio un problema en al base de datos');
   
   //  fin cierre session
   session_destroy();
   
   if ($redirect) 
-    include ('./login_bootstrap.php');
+    header('Location: ' . ORFEO_URL);
   else
-    include "./paginaError.php";
+    header('Location: ' . ORFEO_URL . 'paginaError.php');
 ?>
