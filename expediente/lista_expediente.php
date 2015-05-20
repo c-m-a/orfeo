@@ -740,6 +740,7 @@ if($expedienteSeleccionado) {
         $radicado_fech = "<a href='#' onclick=\"alert('El documento posee seguridad y no posee los suficientes permisos'); return false;\"><span class=leidos>$radicado_fech</span></a>";
     }
   
+  $smarty->assign('REF_RADICADO', $ref_radicado);
   // Modificado Infometrika 23-Julio-2009
   if (!isset($verBorrados)) {
     if( ( $anexosRadicado != $radicado_d ) ) {
