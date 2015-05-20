@@ -28,11 +28,9 @@
 /* Fundacion CorreLibre.org                    04/2009
 /*************************************************************************************/
 
-include_once "$ruta_raiz/include/db/ConnectionHandler.php";
-include_once "$ruta_raiz/config.php";
-
-//contiene función que verifica usuario y Password en LDAP
-include("$ruta_raiz/autenticaLDAP.php");
+include_once($ruta_raiz . '/include/db/ConnectionHandler.php');
+include_once($ruta_raiz . '/config.php');
+include($ruta_raiz . '/autenticaLDAP.php');
 if(!$krd) $krd = $_REQUEST["krd"];
 
 $db = new ConnectionHandler($ruta_raiz);
