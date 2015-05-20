@@ -1,17 +1,11 @@
 <?
 session_start();
-echo "Post<hr>";
-print_r($_POST);
-echo "Get<hr>";
-print_r($_GET);
 if($_POST["nombreProceso"]) $nombreProceso = $_POST["nombreProceso"];
 if($_POST["codserie"]) $codserie = $_POST["codserie"];
 if($_POST["tsub"]) $tsub = $_POST["tsub"];
 if($_GET["accion"]) $accion = $_GET["accion"];
 
-error_reporting(0);
 session_start();
-error_reporting(0);
 $ruta_raiz = "../../..";
 $salida = 0;
 $queryProc = $accion;
@@ -40,7 +34,6 @@ if ( $accion == 1 ) {
     $db = new ConnectionHandler( "$ruta_raiz" );
     if (!defined('ADODB_FETCH_ASSOC'))define('ADODB_FETCH_ASSOC',2);
     $ADODB_FETCH_MODE = ADODB_FETCH_ASSOC;
-	$db->conn->debug = true;
 ?>
 <form name='frmCrear' action='<?=$action?>' method="post">
 <table width="93%"  border="1" align="center">
@@ -63,7 +56,6 @@ if ( $accion == 1 ) {
 					$rsDep = $db->conn->Execute( $sql );
 					
 					print $rsDep->GetMenu2( "proceso", "", false, false, 0," class='select'" );
-					 $db->conn->debug = false;	
 			?>
 		</td>
 	</tr>
