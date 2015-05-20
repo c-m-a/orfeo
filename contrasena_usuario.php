@@ -1,9 +1,4 @@
 <?php
-  /**
-   * @autor Jairo Losada 2009-05
-   * @licencia GNU/GPL V 3
-   */
-  
   foreach ($_GET as $key => $valor)
     ${$key} = $valor;
   foreach ($_POST as $key => $valor)
@@ -11,13 +6,14 @@
   
   define('ADODB_ASSOC_CASE', 1);
   session_start();
+  
   include('./config.php');
   include(SMARTY_TEMPLATE);
   include ('./include/db/ConnectionHandler.php');
   
   $ruta_raiz = '.';
   $db = new ConnectionHandler($ruta_raiz);
-  $krd = $_SESSION['krd'];
+  $krd = (isset($_SESSION['krd']))? $_SESSION['krd'] : $_GET['krd'];
 
   if (empty($krd))
     exit('Error su sesion ha caducado!! Por favor vuelva a loguearse');
