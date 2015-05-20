@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-print_r($_POST);
 if($_POST["nombreProceso"]) $nombreProceso = $_POST["nombreProceso"];
 if($_POST["codserie"]) $codserie = $_POST["codserie"];
 if($_POST["tsub"]) $tsub = $_POST["tsub"];
