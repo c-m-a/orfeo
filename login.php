@@ -78,7 +78,7 @@
         exit();
       } else {
         // Autorizacion validad tiene acceso al sistema.
-        include($ruta_raiz . '/session_orfeo.php');
+        include('./session_orfeo.php');
         header($arrancar_orfeo);
         exit();
       }
