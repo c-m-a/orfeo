@@ -4,6 +4,7 @@
   include ('../../config.php');
   include ('../../include/db/ConnectionHandler.php');
   $db = new ConnectionHandler($ruta_raiz);
+  $db->conn->debug = true;
   
   $isql1        = null;
   $cl           = null;
@@ -64,15 +65,16 @@ $isql = "SELECT USUA_DOC,
                 USUA_PISO,
                 USUA_EXT,
 			USUA_EMAIL, USUA_CODI FROM USUARIO WHERE USUARIO.USUA_LOGIN = '" .$usuLogin ."'";
-	$rs = $db->conn->query($isql);
+	
+  $rs = $db->conn->query($isql);
 	$isqlRadic = "SELECT RADI_NUME_RADI FROM RADICADO WHERE RADI_DEPE_ACTU = " . $rs->fields["DEPE_CODI"] .
 				" AND RADI_USUA_ACTU = " . $rs->fields["USUA_CODI"];
 	$rsRadic = $db->query($isqlRadic);
 	$radicado = $rsRadic->fields["RADI_NUME_RADI"];
 	
-	if($perfilOrig != $perfil)
-	{	if($perfilOrig == "Jefe" && $perfil == "Normal")
-		{	$isqlCod = "SELECT MAX(USUA_CODI) AS NUMERO FROM USUARIO WHERE DEPE_CODI = ".$dep_sel;
+	if($perfilOrig != $perfil) {
+    if($perfilOrig == "Jefe" && $perfil == "Normal") {
+      $isqlCod = "SELECT MAX(USUA_CODI) AS NUMERO FROM USUARIO WHERE DEPE_CODI = ".$dep_sel;
 			$rs7= $db->conn->query($isqlCod);
 			$nusua_codi = $rs7->fields["NUMERO"] + 1;
 		}
@@ -100,6 +102,7 @@ $isql = "SELECT USUA_DOC,
                                                 '" . $usuLogin . "')";
 		$db->conn->Execute($isql);
 	}
+  
 	if($rs->fields["USUA_DOC"] <> $cedula) {
     $isql1 = "USUA_DOC = ".$cedula.", ";
 		$isql = "INSERT INTO SGD_USH_USUHISTORICO (SGD_USH_ADMCOD,
@@ -294,8 +297,9 @@ $isql = "SELECT USUA_DOC,
 	include ('./acepPermisosModif.php');
   $dep_vis = (isset($_POST['dep_vis']))? $_POST['dep_vis'] : null;
 	// Validacion e insercion de dependencias seleccionadas visibles
-	if (is_array($dep_vis))
-	{	$db->conn->Execute("DELETE FROM DEPENDENCIA_VISIBILIDAD WHERE DEPENDENCIA_VISIBLE=$dep_sel");
+	if (is_array($dep_vis)) {
+    $borrar_visibilidad ="DELETE FROM DEPENDENCIA_VISIBILIDAD WHERE DEPENDENCIA_VISIBLE=$dep_sel"; 
+  $db->conn->Execute($borrar_visibilidad);
 		$rs_sec_dep_vis = $db->conn->Execute("SELECT MAX(CODIGO_VISIBILIDAD) AS IDMAX FROM DEPENDENCIA_VISIBILIDAD");
 		$id_CodVis = $rs_sec_dep_vis->Fields('IDMAX');
 		while(list($key, $val) = each($_POST['dep_vis']))
@@ -325,7 +329,7 @@ $isql = "SELECT USUA_DOC,
 	$rs=$db->conn->query($isql);
 	if (empty($swConRadicado)) {
 ?>
-    <form name="frmConfirmaCreacion" action="Administracion/formAdministracion.php" method="post">
+    <form name="frmConfirmaCreacion" action="Administracion/" method="post">
 		<table align="center" border="2" bordercolor="#000000">
 			<tr bordercolor="#FFFFFF">
         <td width="211" height="30" colspan="2" class="listado2">
@@ -468,7 +472,7 @@ $isql = "SELECT USUA_DOC,
 	
   if (!$ok) {
 	?>
-		<form name="frmConfirmaCreacion" action="Administracion/formAdministracion.php" method="post">
+		<form name="frmConfirmaCreacion" action="Administracion/" method="post">
 		<table align="center" border="2" bordercolor="#000000">
 		<tr bordercolor="#FFFFFF">
 			<td width="211" height="30" colspan="2" class="listado2">

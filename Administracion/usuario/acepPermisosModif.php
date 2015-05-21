@@ -1,39 +1,7 @@
 <?php
-/*************************************************************************************/
-/* ORFEO GPL:Sistema de Gestion Documental		http://www.orfeogpl.org	     */
-/*	Idea Original de la SUPERINTENDENCIA DE SERVICIOS PUBLICOS DOMICILIARIOS     */
-/*				COLOMBIA TEL. (57) (1) 6913005  orfeogpl@gmail.com   */
-/* ===========================                                                       */
-/*                                                                                   */
-/* Este programa es software libre. usted puede redistribuirlo y/o modificarlo       */
-/* bajo los terminos de la licencia GNU General Public publicada por                 */
-/* la "Free Software Foundation"; Licencia version 2. 			             */
-/*                                                                                   */
-/* Copyright (c) 2005 por :	  	  	                                     */
-/* SSPS "Superintendencia de Servicios Publicos Domiciliarios"                       */
-/*   Jairo Hernan Losada  jlosada@gmail.com                Desarrollador             */
-/*   Sixto Angel Pinz�n L�pez --- angel.pinzon@gmail.com   Desarrollador             */
-/* C.R.A.  "COMISION DE REGULACION DE AGUAS Y SANEAMIENTO AMBIENTAL"                 */
-/*   Liliana Gomez        lgomezv@gmail.com                Desarrolladora            */
-/*   Lucia Ojeda          lojedaster@gmail.com             Desarrolladora            */
-/* D.N.P. "Departamento Nacional de Planeaci�n"                                      */
-/*   Hollman Ladino       hollmanlp@gmail.com                Desarrollador           */
-/*                                                                                   */
-/* Colocar desde esta lInea las Modificaciones Realizadas Luego de la Version 3.5    */
-/*  Nombre Desarrollador   Correo     Fecha   Modificacion                           */
-/*************************************************************************************/
-
 $db->conn->SetFetchMode(ADODB_FETCH_ASSOC);
 if ($usuLogin) {
 	$sqlFechaHoy=$db->conn->DBTimeStamp(time());
-
-/*
-CREA PERMISOS PARA VALIDAR CONTROL DE LEGALIDAD
-CARLOS BARRERO - 26-04-2011
-*/			
-	$sql_cl="UPDATE ses_permisos SET permiso_cont_leg=".$cl." WHERE usua_login='".$usuLogin."'";
-	$rs_cl = $db->query($sql_cl);
-
 
 	$isql = "UPDATE USUARIO SET ";
   
@@ -220,53 +188,6 @@ CARLOS BARRERO - 26-04-2011
 	$rs = $db->conn->query($isql);
 	$isqldesp = "select * from USUARIO WHERE USUA_LOGIN = '".$usuLogin."'";
 	$rs = $db->conn->query($isqldesp);
-//consulta si el usuario existe
-$sql_bus="SELECT COUNT(*) AS CONT FROM SES_PERMISOS WHERE USUA_LOGIN='".$usuLogin."'";
-$rs_bus = $db->conn->query($sql_bus);		
-if($rs_bus) {
-    $total = $rs_bus->fields["CONT"];
-		//actualiza tabla ses_permisos para consulta control de legalidad y entidades solidarias		
-		$sql_upd="UPDATE SES_PERMISOS SET PERMISO_CONT_LEG=";
-		if($cl!=0)
-			$sql_upd.=$cl;
-		else
-			$sql_upd.="0";
-		$sql_upd.=", PERMISO_CON_ENT_SOL =";
-		if($solidarias==1)
-			$sql_upd.="1";
-		else
-			$sql_upd.="0";
-			
-		$sql_upd.=", PERMISO_USU_EXTERNO =";
-		if($usuario_internet==1)
-			$sql_upd.="1";
-		else
-			$sql_upd.="0";			
-
-		$sql_upd.=" WHERE USUA_LOGIN='".$usuLogin."'";
-		$rs_upd=$db->query($sql_upd);
-	}
-else
-	{
-	$sql_ins="INSERT INTO SES_PERMISOS (USUA_LOGIN,PERMISO_CONT_LEG,PERMISO_CON_ENT_SOL,PERMISO_USU_EXTERNO)
-	VALUES('".$usuLogin."',";
-		if($cl!=0)
-			$sql_upd.=$cl;
-		else
-			$sql_ins.="0";
-	$sql_ins.=",";
-		if(isset($solidarias) && $solidarias==1)
-			$sql_ins.="1";
-		else
-			$sql_ins.="0";
-	$sql_ins.=",";
-		if(isset($usuario_internet) && $usuario_internet == 1)
-			$sql_ins.="1";
-		else
-			$sql_ins.="0";
-	$sql_ins.=")";
-  $rs_ins=$db->conn->query($sql_ins);
-	}
 }
 ?>
   <body style="background-color:#FFFFFF">
