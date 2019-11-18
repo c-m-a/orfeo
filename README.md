@@ -18,7 +18,7 @@ Este software se entrega sin ninguna garantia de errores en el codigo fuente, ba
 * [Soporte y Licencia](#databases)
 
 
-Cualquier informacion pueden contactarme a mi cuenta de [![@Cmauricio4u](ui/images/twitter.png)](https://twitter.com/cmauricio4u)
+Cualquier informacion pueden contactarme a mi cuenta de [![@Cma4c](ui/images/twitter.png)](https://twitter.com/cma4c)
 
 ### Version 4.0 Es Finalmente Liberada!
 
